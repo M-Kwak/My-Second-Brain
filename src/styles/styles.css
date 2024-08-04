@@ -1,0 +1,44 @@
+@font-face {
+  font-family: Roboto;
+  src: local("Roboto-Regular"), local("Roboto-Medium"), url("/public/fonts/Roboto/Roboto-Medium.ttf"), url("/public/fonts/Roboto/Roboto-Medium.ttf");
+}
+
+@font-face {
+  font-family: NunitoSans;
+  src: local("NunitoSans"), url("/public/fonts/NunitoSans/static/NunitoSans_10pt-Regular.ttf");
+}
+
+:root {
+  font-family: NunitoSans, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #161829;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #161829;
+}
+
+#root {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-family: Roboto;
+}
