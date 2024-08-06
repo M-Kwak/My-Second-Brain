@@ -1,19 +1,22 @@
 import { ReactNode } from "react";
+import "./Container.css";
 
 type direction = 'row' | 'column';
+interface ContainerSpecs {
+  children: ReactNode,
+  direction: direction,
+  id?: string,
+}
 
-function Container({ children, direction, customStyle }: { children: ReactNode, direction: direction, customStyle?: React.CSSProperties }): React.JSX.Element {
-  const defaultStyle: React.CSSProperties = {
-    display: 'flex',
-    flexFlow: `${direction} wrap`,
-    justifyContent: 'center',
-    alignItems: 'center',
-  };
-
-  const style = customStyle === undefined ? defaultStyle : { ...defaultStyle, ...customStyle};
+function Container(props: ContainerSpecs): React.JSX.Element {
+  const { children, direction, id } = props;
 
   return (
-    <div style={style}>
+    <div
+      id={id}
+      className="container"
+      style={{ flexFlow: `${direction} wrap` }}
+    >
       {children}
     </div>
   );
