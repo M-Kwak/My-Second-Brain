@@ -1,14 +1,9 @@
-import Container from "../../components/container/Container";
-
-const loginContainerStyle = {
-  height: '100vh',
-  backgroundColor: '#222641',
-  justifyContent: 'space-around',
-}
+import Container from "../../../components/container/Container";
+import "./ActionPannel.css";
 
 function Login(): React.JSX.Element {
   return (
-    <Container direction="column" customStyle={loginContainerStyle}>
+    <Container direction="column" id="mainContainer">
       <Container direction="column">
         <h1>Login</h1>
       </Container>

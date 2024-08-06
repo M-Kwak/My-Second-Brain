@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/styles.css';
-import Login from './pages/login/Login.tsx';
+import Login from './pages/login/actionPannel/ActionPannel.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
