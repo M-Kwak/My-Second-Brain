@@ -1,7 +1,7 @@
 import Container from "../../../components/container/Container";
-import "./ActionPannel.css";
+import "./LoginActionPannel.css";
 
-function Login(): React.JSX.Element {
+function LoginActionPannel(): React.JSX.Element {
   return (
     <Container direction="column" id="mainContainer">
       <Container direction="column">
@@ -23,4 +23,4 @@ function Login(): React.JSX.Element {
   );
 }
 
-export default Login;
+export default LoginActionPannel;
