@@ -1,0 +1,7 @@
+.styledInput {
+    min-width: 250px;
+    min-height: 35px;
+    background-color: #ffffff;
+    color: #797979;
+    border-radius: 10px;
+}
