@@ -1,8 +1,9 @@
 .styledSubmitInput {
     font-family: 'Roboto';
+    font-size: 1.6em;
     min-width: 175px;
     min-height: 35px;
     border-radius: 35px;
     border: 0;
-    background: linear-gradient(160deg, #0C61FF, #9000FF);
+    background: linear-gradient(165deg, #0c69ff, #9900ff);
 }
