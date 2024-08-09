@@ -21,7 +21,7 @@ function LoginActionPannel(): React.JSX.Element {
           placeholder="Password"
           name="login"
         />
-        <span>Forgot Password ?</span>
+        <span id="forgotPassword">Forgot Password ?</span>
         <StyledSubmitInput
           value="Login"
           name="login"
@@ -29,7 +29,7 @@ function LoginActionPannel(): React.JSX.Element {
       </form>
       <Container direction="row">
         <p>Don't have an account yet ?</p>
-        <span>Create</span>
+        <span id="createAccount">Create</span>
       </Container>
     </Container>
   );
