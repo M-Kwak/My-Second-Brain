@@ -23,8 +23,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -39,6 +48,26 @@ body {
   text-align: center;
 }
 
-h1 {
+h1, h2, h3, button {
   font-family: Roboto;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+p, span {
+  font-size: 1.6rem;
+}
+
+span {
+  color: rgba(0, 255, 255, 1);
 }
