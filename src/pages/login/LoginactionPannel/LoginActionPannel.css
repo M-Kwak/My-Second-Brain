@@ -1,7 +1,7 @@
 #mainContainer {
     height: 100vh;
     background-color: #222641;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 #loginFormContainer {
@@ -10,4 +10,19 @@
     justify-content: flex-start;
     align-items: center;
     min-width: 250px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+#forgotPassword {
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+#createAccount {
+    margin-left: 6px;
+}
+
+h1 {
+    margin-top: 20px;
 }
