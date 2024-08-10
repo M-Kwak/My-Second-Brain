@@ -7,7 +7,7 @@ function LoginActionPannel(): React.JSX.Element {
   return (
     <Container
       direction="column"
-      id="mainContainer"
+      id="loginActionPannelMainContainer"
     >
       <Container direction="column">
         <h1>Login</h1>

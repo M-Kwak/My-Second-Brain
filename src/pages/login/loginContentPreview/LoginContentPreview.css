@@ -1,0 +1,19 @@
+#loginPreviewMainContainer {
+    display: none;
+}
+
+@media screen and (min-width: 1025px) {
+    #loginPreviewMainContainer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        max-width: 100vw;
+        background-color: #161829;
+    }
+    
+    #loginPreviewContentContainer {
+        display: flex;
+        justify-content: flex-start;
+        width: 62%;
+    }
+}

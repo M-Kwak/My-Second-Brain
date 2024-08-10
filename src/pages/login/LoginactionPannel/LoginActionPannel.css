@@ -1,4 +1,4 @@
-#mainContainer {
+#loginActionPannelMainContainer {
     width: 100vw;
     height: 100vh;
     background-color: #222641;
@@ -26,12 +26,17 @@
 }
 
 @media screen and (min-width: 768px) {
-    #mainContainer {
+    #loginActionPannelMainContainer {
         width: 600px;
         height: 80vh;
     }
 }
 
 @media screen and (min-width: 1025px) {
-
+    #loginActionPannelMainContainer {
+        position: fixed;
+        right: 0;
+        height: 100vh;
+        width:38%;
+    }
 }
