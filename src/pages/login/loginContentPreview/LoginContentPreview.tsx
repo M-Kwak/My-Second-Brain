@@ -1,7 +1,7 @@
 import Container from "../../../components/container/Container";
 import "./LoginContentPreview.css";
 
-function LoginContentPreview() {
+function LoginContentPreview(): React.JSX.Element {
   return (
     <>
       <Container
