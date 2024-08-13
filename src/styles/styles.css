@@ -79,6 +79,10 @@ span {
   color: rgba(0, 255, 255, 1);
 }
 
+input {
+  font-size: 1.6rem;
+}
+
 @media screen and (min-width: 768px) {
    h1 {
     font-size: 3.5rem;

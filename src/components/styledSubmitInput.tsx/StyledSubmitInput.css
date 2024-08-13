@@ -1,11 +1,28 @@
 .styledSubmitInput {
     font-family: 'Roboto';
-    font-size: 1.6em;
+    font-size: 1.6rem;
     min-width: 175px;
     min-height: 35px;
+    max-width: 230px;
     width: 60%;
     height: 40px;
     border-radius: 35px;
     border: 0;
     background: linear-gradient(165deg, #0c69ff, #9900ff);
 }
+
+@media screen and (min-width: 768px) {
+    .styledSubmitInput {
+        font-size: 1.8rem;
+        max-width: 250px;
+        height: 45px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .styledSubmitInput {
+        font-size: 2rem;
+        max-width: 280px;
+        height: 48px;
+    }
+ }

@@ -2,7 +2,7 @@
     width: 82%;
     min-width: 260px;
     min-height: 40px;
-    margin: 10px;
+    margin: 14px;
     padding-left: 10px;
     background-color: #ffffff;
     color: #323232;
@@ -13,3 +13,16 @@
 .styledInput:focus {
     outline: none;
 }
+
+@media screen and (min-width: 768px) {
+    .styledInput {
+        width: 70%;
+        height: 45px;
+    }
+ }
+
+@media screen and (min-width: 1025px) {
+    .styledInput {
+        height: 50px;
+    }
+ }
