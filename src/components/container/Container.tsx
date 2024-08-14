@@ -6,15 +6,16 @@ interface ContainerSpecs {
   children: ReactNode,
   direction: direction,
   id?: string,
+  className?: string;
 }
 
 function Container(props: ContainerSpecs): React.JSX.Element {
-  const { children, direction, id } = props;
+  const { children, direction, id, className } = props;
 
   return (
     <div
       id={id}
-      className="container"
+      className={`container ${className}`}
       style={{ flexFlow: `${direction} wrap` }}
     >
       {children}
