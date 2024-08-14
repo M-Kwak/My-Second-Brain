@@ -29,7 +29,7 @@ function LoginActionPannel(): React.JSX.Element {
           />
         </form>
         <Container direction="row">
-          <p>Don't have an account yet ?</p>
+          <p style={{ marginBottom: '0' }}>Don't have an account yet ?</p>
           <span id="createAccount">Create</span>
         </Container>
       </Container>
