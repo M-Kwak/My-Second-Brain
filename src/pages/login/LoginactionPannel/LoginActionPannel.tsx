@@ -1,37 +1,23 @@
+import { useState } from "react";
 import Container from "../../../components/container/Container";
-import StyledInput from "../../../components/styledInput/StyledInput";
-import StyledSubmitInput from "../../../components/styledSubmitInput.tsx/StyledSubmitInput";
 import "./LoginActionPannel.css";
+import LoginContent from "./loginContent/LoginContent";
+import { content } from "../../../types/types";
+import CreateAccountContent from "./createAccountContent/CreateAccountContent";
+import ResetPasswordContent from "./resetPasswordContent/ResetPasswordContent";
 
 function LoginActionPannel(): React.JSX.Element {
+  const [pannelPage, setPannelPage] = useState<content>("login");
+
   return (
     <Container
       direction="column"
       id="loginActionPannelMainContainer"
     >
       <Container direction="column">
-        <h1>Login</h1>
-        <form id="loginFormContainer">
-          <StyledInput
-            type="text"
-            placeholder="Email"
-            name="login"
-          />
-          <StyledInput
-            type="text"
-            placeholder="Password"
-            name="login"
-          />
-          <span id="forgotPassword">Forgot Password ?</span>
-          <StyledSubmitInput
-            value="Login"
-            name="login"
-          />
-        </form>
-        <Container direction="row">
-          <p style={{ marginBottom: '0' }}>Don't have an account yet ?</p>
-          <span id="createAccount">Create</span>
-        </Container>
+        {pannelPage === "login" && <LoginContent setPannelPage={setPannelPage} />}
+        {pannelPage === "create" && <CreateAccountContent setPannelPage={setPannelPage} />}
+        {pannelPage === "reset" && <ResetPasswordContent setPannelPage={setPannelPage} />}
       </Container>
     </Container>
   );
