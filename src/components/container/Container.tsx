@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import "./Container.css";
+import { direction } from "../../types/types";
 
-type direction = 'row' | 'column';
 interface ContainerSpecs {
   children: ReactNode,
   direction: direction,
