@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Container from "../../../components/container/Container";
 import "./LoginActionPannel.css";
-import LoginContent from "./loginContent/LoginContent";
+import { useState } from "react";
 import { content } from "../../../types/types";
+import Container from "../../../components/container/Container";
+import LoginContent from "./loginContent/LoginContent";
 import CreateAccountContent from "./createAccountContent/CreateAccountContent";
 import ResetPasswordContent from "./resetPasswordContent/ResetPasswordContent";
 
