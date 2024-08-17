@@ -1,0 +1,20 @@
+#CreateAccountForm {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 250px;
+    width: 100%;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+#SubmitButton {
+    margin-top: 50px;
+}
+
+@media screen and (min-width: 1025px) {
+    #LoginContent span {
+        cursor: pointer;
+    }
+}
