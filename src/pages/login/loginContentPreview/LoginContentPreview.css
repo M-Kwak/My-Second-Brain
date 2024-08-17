@@ -50,16 +50,16 @@
         background-color: #2F3660;
     }
 
-    h2 {
+    #loginPreviewMainContainer h2 {
         width: 700px;
         margin-bottom: 200px;
     }
 
-    p {
+    #loginPreviewMainContainer p {
         margin-bottom: 20px;
     }
 
-    img {
+    #loginPreviewMainContainer img {
         width: 80px;
         height: 80px;
         margin-bottom: 30px;
