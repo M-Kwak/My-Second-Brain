@@ -25,11 +25,11 @@
 }
 
 @media screen and (min-width: 1025px) {
-    #forgotPassword {
-        margin-bottom: 150px;
-    }
-
     #LoginContent span {
         cursor: pointer;
+    }
+
+    #forgotPassword {
+        margin-bottom: 150px;
     }
 }
