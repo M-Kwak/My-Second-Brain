@@ -1,4 +1,4 @@
-#loginFormContainer {
+#CreateAccountForm {
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
@@ -9,27 +9,12 @@
     margin-bottom: 20px;
 }
 
-#forgotPassword {
-    margin-top: 10px;
-    margin-bottom: 85px;
-}
-
-#createAccount {
-    margin-left: 6px;
-}
-
-@media screen and (min-width: 768px) {
-    #forgotPassword {
-        margin-bottom: 110px;
-    }
+#SubmitButton {
+    margin-top: 50px;
 }
 
 @media screen and (min-width: 1025px) {
     #LoginContent span {
         cursor: pointer;
-    }
-
-    #forgotPassword {
-        margin-bottom: 150px;
     }
 }
