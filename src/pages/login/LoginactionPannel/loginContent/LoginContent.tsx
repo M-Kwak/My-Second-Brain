@@ -14,37 +14,39 @@ function LoginContent(props: LoginContentSpecs): React.JSX.Element {
   const { setPannelPage } = props;
   return (
     <>
-      <h1>Login</h1>
-      <form id="loginFormContainer">
-        <StyledInput
-          type="text"
-          placeholder="Email"
-          name="login"
-        />
-        <StyledInput
-          type="text"
-          placeholder="Password"
-          name="login"
-        />
-        <span
-          id="forgotPassword"
-          onClick={() => setPannelPage("reset")}
-        >
-          Forgot Password ?
-        </span>
-        <StyledSubmitInput
-          value="Login"
-          name="login"
-        />
-      </form>
-      <Container direction="row">
-        <p style={{ marginBottom: '0' }}>Don't have an account yet ?</p>
-        <span
-          id="createAccount"
-          onClick={() => setPannelPage("create")}
-        >
-          Create
-        </span>
+      <Container direction="column" id="LoginContent">
+        <h1>Login</h1>
+        <form id="loginFormContainer">
+          <StyledInput
+            type="text"
+            placeholder="Email"
+            name="login"
+          />
+          <StyledInput
+            type="text"
+            placeholder="Password"
+            name="login"
+          />
+          <span
+            id="forgotPassword"
+            onClick={() => setPannelPage("reset")}
+          >
+            Forgot Password ?
+          </span>
+          <StyledSubmitInput
+            value="Login"
+            name="login"
+          />
+        </form>
+        <Container direction="row">
+          <p style={{ marginBottom: '0' }}>Don't have an account yet ?</p>
+          <span
+            id="createAccount"
+            onClick={() => setPannelPage("create")}
+          >
+            Create
+          </span>
+        </Container>
       </Container>
     </>
   );
