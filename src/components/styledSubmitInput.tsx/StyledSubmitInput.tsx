@@ -18,7 +18,6 @@ function StyledSubmitInput(props: StyledSubmitInputSpecs) {
         value={value}
         name={name}
         onClick={onClick}
-
       />
     </>
   )
