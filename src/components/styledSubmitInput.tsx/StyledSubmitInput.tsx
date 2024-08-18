@@ -4,10 +4,11 @@ interface StyledSubmitInputSpecs {
   value: string,
   name: string
   id?: string,
+  onClick?: () => void;
 }
 
 function StyledSubmitInput(props: StyledSubmitInputSpecs) {
-  const { value, name, id } = props;
+  const { value, name, id, onClick } = props;
   return (
     <>
       <input
@@ -16,6 +17,7 @@ function StyledSubmitInput(props: StyledSubmitInputSpecs) {
         type="submit"
         value={value}
         name={name}
+        onClick={onClick}
       />
     </>
   )

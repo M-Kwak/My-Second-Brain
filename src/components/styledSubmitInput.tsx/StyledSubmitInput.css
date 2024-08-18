@@ -24,5 +24,6 @@
         font-size: 2rem;
         max-width: 280px;
         height: 48px;
+        cursor: pointer;
     }
  }

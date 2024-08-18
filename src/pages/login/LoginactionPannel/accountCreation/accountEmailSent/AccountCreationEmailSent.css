@@ -1,0 +1,30 @@
+#AccountCreationEmailSent {
+    padding: 20px;
+}
+
+#content {
+    margin-top: 70px;
+}
+
+#content p {
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+#AccountCreationEmailSent img {
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (min-width: 768px) {
+    #AccountCreationEmailSent {
+        padding: 30px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #AccountCreationEmailSent img {
+        width: 50px;
+        height: 50px;
+    }
+}
