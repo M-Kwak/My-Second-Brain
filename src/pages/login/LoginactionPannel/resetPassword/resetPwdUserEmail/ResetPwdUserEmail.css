@@ -1,0 +1,32 @@
+#ResetPwdUserEmail #content {
+    justify-content: center;
+    margin-top: 85px;
+}
+
+#ResetPwdUserEmail p {
+    padding: 20px;
+}
+
+#ResetPwdUserEmail #EmailInput {
+    margin-bottom: 85px;
+}
+
+#ResetPwdUserEmail span {
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    #ResetPwdUserEmail {
+        padding: 30px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #ResetPwdUserEmail form {
+        width: 100%;
+    }
+    
+    #ResetPwdUserEmail span {
+        cursor: pointer;
+    }
+}
