@@ -1,0 +1,30 @@
+#AccountCreationSuccess {
+    padding: 20px;
+}
+
+#content {
+    margin-top: 70px;
+}
+
+#content p {
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+#AccountCreationSuccess img {
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (min-width: 768px) {
+    #AccountCreationSuccess {
+        padding: 30px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #AccountCreationSuccess img {
+        width: 50px;
+        height: 50px;
+    }
+}
