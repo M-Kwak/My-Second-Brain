@@ -3,13 +3,13 @@ import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledSubmitInput from "../../../../../components/styledSubmitInput.tsx/StyledSubmitInput";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
-import "./AccountUserInfo.css"
+import "./AccountCreationUserInfo.css"
 
-interface AccountUserInfoSpecs {
+interface AccountCreationUserInfoSpecs {
   setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
 }
 
-function AccountUserInfo(props: AccountUserInfoSpecs): React.JSX.Element {
+function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX.Element {
   const { setPannelPage } = props;
   return (
     <Container direction="column" id="AccountCreationUserInfo">
@@ -38,4 +38,4 @@ function AccountUserInfo(props: AccountUserInfoSpecs): React.JSX.Element {
   );
 }
 
-export default AccountUserInfo;
+export default AccountCreationUserInfo;

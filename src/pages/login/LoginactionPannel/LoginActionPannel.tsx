@@ -8,7 +8,7 @@ import AccountCreationSuccess from "./accountCreation/accountCreationSuccess/Acc
 import ResetPwdUserEmail from "./resetPassword/resetPwdUserEmail/ResetPwdUserEmail";
 import ResetPwdSuccess from "./resetPassword/resetPwdSuccess/ResetPwdSuccess";
 import ResetPwd from "./resetPassword/resetPwd/ResetPwd";
-import AccountUserInfo from "./accountCreation/accountUserInfo/AccountUserInfo";
+import AccountCreationUserInfo from "./accountCreation/accountCreationUserInfo/AccountCreationUserInfo";
 
 function LoginActionPannel(): React.JSX.Element {
   const [pannelPage, setPannelPage] = useState<loginPageContent>("login");
@@ -20,7 +20,7 @@ function LoginActionPannel(): React.JSX.Element {
     >
       <Container direction="column">
         {pannelPage === "login" && <LoginContent setPannelPage={setPannelPage} />}
-        {pannelPage === "create-account-info" && <AccountUserInfo setPannelPage={setPannelPage} />}
+        {pannelPage === "create-account-info" && <AccountCreationUserInfo setPannelPage={setPannelPage} />}
         {pannelPage === "create-account-email-success" && <AccountEmailSent setPannelPage={setPannelPage} />}
         {pannelPage === "create-account-success" && <AccountCreationSuccess setPannelPage={setPannelPage} />}
         {pannelPage === "reset-pwd-info" && <ResetPwdUserEmail setPannelPage={setPannelPage} />}
