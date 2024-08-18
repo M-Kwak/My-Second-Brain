@@ -2,11 +2,11 @@
     padding: 20px;
 }
 
-#content {
+#AccountCreationSuccess #content {
     margin-top: 70px;
 }
 
-#content p {
+#AccountCreationSuccess #content p {
     margin-top: 20px;
     margin-bottom: 70px;
 }
