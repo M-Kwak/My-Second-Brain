@@ -2,11 +2,11 @@
     padding: 20px;
 }
 
-#content {
+#AccountCreationEmailSent #content {
     margin-top: 70px;
 }
 
-#content p {
+#AccountCreationEmailSent #content p {
     margin-top: 20px;
     margin-bottom: 70px;
 }
