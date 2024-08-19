@@ -12,7 +12,10 @@ interface AccountCreationUserInfoSpecs {
 function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX.Element {
   const { setPannelPage } = props;
   return (
-    <Container direction="column" id="AccountCreationUserInfo">
+    <Container
+      direction="column"
+      id="AccountCreationUserInfo"
+    >
       <h1>Create an account</h1>
       <form id="CreateAccountForm">
         <StyledInput
