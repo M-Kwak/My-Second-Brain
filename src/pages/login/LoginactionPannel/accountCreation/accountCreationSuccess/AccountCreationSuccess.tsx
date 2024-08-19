@@ -23,7 +23,7 @@ function AccountCreationSuccess(props: AccountCreationSuccessSpecs): React.JSX.E
         <img src="/images/partyPopper.svg" />
         <p>Your account has been created with success !</p>
         <StyledSubmitInput
-          name="AccountCreationEmailSent"
+          name="AccountCreationSuccess"
           value="Back to login"
           onClick={() => setPannelPage("login")}
         />
