@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
-import StyledInput from "../../../../components/styledInput/StyledInput";
-import StyledSubmitInput from "../../../../components/styledSubmitInput.tsx/StyledSubmitInput";
-import Container from "../../../../components/container/Container";
 import { loginPageContent } from "../../../../types/types";
+import StyledInput from "../../../../components/styledInput/StyledInput";
+import StyledButton from "../../../../components/styledButton/StyledButton";
+import Container from "../../../../components/container/Container";
 import "./LoginContent.css"
 
 
@@ -30,9 +30,9 @@ function LoginContent(props: LoginContentSpecs): React.JSX.Element {
         >
           Forgot Password ?
         </span>
-        <StyledSubmitInput
-          value="Login"
-          name="login"
+        <StyledButton
+          text="Login"
+          onClick={() => setPannelPage("login")}
         />
       </form>
       <Container direction="row">

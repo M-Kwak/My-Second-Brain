@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
-import StyledSubmitInput from "../../../../../components/styledSubmitInput.tsx/StyledSubmitInput";
+import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./ResetPwd.css";
 
 interface ResetPwdSpecs {
@@ -26,11 +26,10 @@ function ResetPwd(props: ResetPwdSpecs): React.JSX.Element {
           name="reset-pwd"
           placeholder="Confirm new password"
         />
-        <StyledSubmitInput
-          value="Reset password"
-          name="backLogin"
+        <StyledButton
+          text="Reset password"
           id="SubmitButton"
-          onClick={() => setPannelPage("login")}
+          onClick={() => setPannelPage("reset-pwd-success")}
         />
       </form>
     </Container>

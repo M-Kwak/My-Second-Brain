@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import Container from "../../../../../components/container/Container";
-import StyledSubmitInput from "../../../../../components/styledSubmitInput.tsx/StyledSubmitInput";
+import StyledButton from "../../../../../components/styledButton/StyledButton";
 import { loginPageContent } from "../../../../../types/types";
 import "./AccountCreationEmailSent.css";
 
@@ -24,9 +24,8 @@ function AccountCreationEmailSent(props: AccountCreationEmailSentSpecs): React.J
       >
         <img src="/images/emailSuccess.svg" />
         <p>A verification email has been sent to : {emailTest} <br/> Please check your mailbox to verify your new account before you sign in.</p>
-        <StyledSubmitInput
-          name="AccountCreationEmailSent"
-          value="Back to login"
+        <StyledButton
+          text="Back to login"
           onClick={() => setPannelPage("login")}
         />
       </Container>

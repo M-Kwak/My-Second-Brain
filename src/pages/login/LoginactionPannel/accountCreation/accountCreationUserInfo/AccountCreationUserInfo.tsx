@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
-import StyledSubmitInput from "../../../../../components/styledSubmitInput.tsx/StyledSubmitInput";
+import StyledButton from "../../../../../components/styledButton/StyledButton";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
 import "./AccountCreationUserInfo.css"
 
@@ -30,10 +30,10 @@ function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX
           name="create-account"
           placeholder="Confirm password"
         />
-        <StyledSubmitInput
-          value="Join now !"
-          name="send-user-info"
+        <StyledButton
           id="SubmitButton"
+          text="Join now !"
+          onClick={() => setPannelPage("create-account-email-success")}
         />
       </form>
       <span onClick={() => setPannelPage("login")}>return</span>
