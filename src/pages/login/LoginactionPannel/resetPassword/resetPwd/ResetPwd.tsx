@@ -20,11 +20,11 @@ function ResetPwd(props: ResetPwdSpecs): React.JSX.Element {
       <form id="ResetPwdForm">
         <StyledInput
           name="reset-pwd"
-          placeholder="Password"
+          placeholder="New password"
         />
         <StyledInput
           name="reset-pwd"
-          placeholder="Confirm password"
+          placeholder="Confirm new password"
         />
         <StyledSubmitInput
           value="Reset password"
