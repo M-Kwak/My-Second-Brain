@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
-import StyledSubmitInput from "../../../../../components/styledSubmitInput.tsx/StyledSubmitInput";
+import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./ResetPwdSuccess.css";
 
 interface ResetPwdSuccessSpecs {
@@ -22,9 +22,8 @@ function ResetPwdSuccess(props: ResetPwdSuccessSpecs): React.JSX.Element {
       >
         <img src="/images/tickCircle.svg" />
         <p>Your password has been reset with success !</p>
-        <StyledSubmitInput
-          name="ResetPwd"
-          value="Back to login"
+        <StyledButton
+          text="Back to login"
           onClick={() => setPannelPage("login")}
         />
       </Container>

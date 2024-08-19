@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
-import StyledSubmitInput from "../../../../../components/styledSubmitInput.tsx/StyledSubmitInput";
+import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./ResetPwdEmailSent.css";
 
 interface ResetPwdEmailSentSpecs {
@@ -24,9 +24,8 @@ function ResetPwdEmailSent(props: ResetPwdEmailSentSpecs): React.JSX.Element {
       >
         <img src="/images/emailSuccess.svg" />
         <p>An email has been sent to : {emailTest} <br/> Follow the link inside to reset your password.</p>
-        <StyledSubmitInput
-          name="ResetPwdEmailSent"
-          value="Back to login"
+        <StyledButton
+          text="Back to login"
           onClick={() => setPannelPage("login")}
         />
       </Container>

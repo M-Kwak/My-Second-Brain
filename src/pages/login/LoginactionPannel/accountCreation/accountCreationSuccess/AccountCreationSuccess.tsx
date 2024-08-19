@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
-import Container from "../../../../../components/container/Container";
 import { loginPageContent } from "../../../../../types/types";
-import StyledSubmitInput from "../../../../../components/styledSubmitInput.tsx/StyledSubmitInput";
+import Container from "../../../../../components/container/Container";
+import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./AccountCreationSuccess.css";
 
 interface AccountCreationSuccessSpecs {
@@ -22,9 +22,8 @@ function AccountCreationSuccess(props: AccountCreationSuccessSpecs): React.JSX.E
       >
         <img src="/images/partyPopper.svg" />
         <p>Your account has been created with success !</p>
-        <StyledSubmitInput
-          name="AccountCreationSuccess"
-          value="Back to login"
+        <StyledButton
+          text="Back to login"
           onClick={() => setPannelPage("login")}
         />
       </Container>
