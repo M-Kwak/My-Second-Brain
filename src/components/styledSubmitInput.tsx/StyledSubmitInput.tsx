@@ -4,7 +4,7 @@ interface StyledSubmitInputSpecs {
   value: string,
   name: string
   id?: string,
-  onClick?: () => void;
+  onClick?: () => void,
 }
 
 function StyledSubmitInput(props: StyledSubmitInputSpecs) {
