@@ -1,11 +1,11 @@
 @font-face {
   font-family: Roboto;
-  src: local("Roboto-Regular"), local("Roboto-Medium"), url("/public/fonts/Roboto/Roboto-Medium.ttf"), url("/public/fonts/Roboto/Roboto-Medium.ttf");
+  src: local("Roboto-Regular"), local("Roboto-Medium"), url("/fonts/Roboto/Roboto-Medium.ttf"), url("/fonts/Roboto/Roboto-Medium.ttf");
 }
 
 @font-face {
   font-family: NunitoSans;
-  src: local("NunitoSans"), url("/public/fonts/NunitoSans/static/NunitoSans_10pt-Regular.ttf");
+  src: local("NunitoSans"), url("/fonts/NunitoSans/static/NunitoSans_10pt-Regular.ttf");
 }
 
 :root {
