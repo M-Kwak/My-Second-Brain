@@ -1,4 +1,4 @@
-import "./StyledInput.css";
+import "./StyledInput.scss";
 
 interface StyledInputSpecs {
   type?: 'text',

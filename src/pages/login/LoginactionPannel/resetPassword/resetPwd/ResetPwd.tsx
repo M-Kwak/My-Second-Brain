@@ -3,7 +3,7 @@ import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
-import "./ResetPwd.css";
+import "./ResetPwd.scss";
 
 interface ResetPwdSpecs {
   setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
@@ -17,7 +17,7 @@ function ResetPwd(props: ResetPwdSpecs): React.JSX.Element {
       id="ResetPwd"
     >
       <h1>Reset password</h1>
-      <form id="ResetPwdForm">
+      <form>
         <StyledInput
           name="reset-pwd"
           placeholder="New password"

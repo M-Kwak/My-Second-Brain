@@ -1,0 +1,43 @@
+#LoginContent {
+    form {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: center;
+        min-width: 250px;
+        width: 100%;
+        margin-top: 70px;
+        margin-bottom: 20px;
+    }
+
+    span:nth-child(3) {
+        margin-top: 10px;
+        margin-bottom: 85px;
+    }
+
+    span:nth-child(2) {
+        margin-left: 6px;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    #LoginContent {
+        span:nth-child(3) {
+            margin-bottom: 110px;
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #LoginContent {
+        span {
+            cursor: pointer;
+        }
+
+        span:nth-child(3) {
+            margin-bottom: 150px;
+        }
+    }
+
+}

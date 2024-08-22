@@ -1,4 +1,4 @@
-import "./StyledButton.css";
+import "./StyledButton.scss";
 
 interface StyledButtonSpecs {
   id?: string,

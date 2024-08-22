@@ -3,7 +3,7 @@ import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
-import "./ResetPwdUserEmail.css";
+import "./ResetPwdUserEmail.scss";
 
 interface ResetPwdUserEmailSpecs {
   setPannelPage: Dispatch<SetStateAction<loginPageContent>>,

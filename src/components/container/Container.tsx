@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import "./Container.css";
+import "./Container.scss";
 import { direction } from "../../types/types";
 
 interface ContainerSpecs {
