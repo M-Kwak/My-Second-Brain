@@ -1,0 +1,63 @@
+#loginPreviewMainContainer {
+    display: none;
+}
+
+@media screen and (min-width: 1025px) {
+    #loginPreviewMainContainer {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 65%;
+        padding: 120px 90px;
+        background-color: #161829;
+
+        h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 200px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+        }
+
+        h2 span {
+            font-size: 2.8rem;
+            background: linear-gradient(110deg, #0c69ff, #ae00ff);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .appPreviewContainer {
+            margin-bottom: 200px;
+        }
+    
+        .innerAppPreviewContainer {
+            margin-bottom: 90px;
+        }
+    
+        /* DELETE THIS WHEN ARCHIVE COMPONENT IS DONE !*/
+        .archiveTopicExemple {
+            width: 230px;
+            height: 90px;
+            background-color: #2F3660;
+            border-radius: 8px;
+            margin: 0 15px;
+        }
+    
+        .appPreview {
+            width: 850px;
+            height: 430px;
+            border-radius: 8px;
+            background-color: #2F3660;
+        }
+    }
+}

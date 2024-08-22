@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
-import "./ResetPwdSuccess.css";
+import "./ResetPwdSuccess.scss";
 
 interface ResetPwdSuccessSpecs {
   setPannelPage: Dispatch<SetStateAction<loginPageContent>>,

@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import Container from "../../../../../components/container/Container";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
 import { loginPageContent } from "../../../../../types/types";
-import "./AccountCreationEmailSent.css";
+import "./AccountCreationEmailSent.scss";
 
 interface AccountCreationEmailSentSpecs {
   setPannelPage: Dispatch<SetStateAction<loginPageContent>>,

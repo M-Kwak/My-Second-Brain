@@ -3,7 +3,7 @@ import { loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
-import "./AccountCreationUserInfo.css"
+import "./AccountCreationUserInfo.scss"
 
 interface AccountCreationUserInfoSpecs {
   setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
@@ -17,7 +17,7 @@ function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX
       id="AccountCreationUserInfo"
     >
       <h1>Create an account</h1>
-      <form id="CreateAccountForm">
+      <form>
         <StyledInput
           name="create-account"
           placeholder="Email"

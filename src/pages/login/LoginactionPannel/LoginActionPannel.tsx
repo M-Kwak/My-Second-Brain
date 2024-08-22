@@ -1,4 +1,4 @@
-import "./LoginActionPannel.css";
+import "./LoginActionPannel.scss";
 import { useState } from "react";
 import { loginPageContent } from "../../../types/types";
 import Container from "../../../components/container/Container";

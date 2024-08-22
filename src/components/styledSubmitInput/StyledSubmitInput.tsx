@@ -1,4 +1,4 @@
-import "./StyledSubmitInput.css";
+import "./StyledSubmitInput.scss";
 
 interface StyledSubmitInputSpecs {
   value: string,
