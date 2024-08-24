@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { loginPageContent } from "../../../../types/types";
+import { Link } from "react-router-dom";
 import StyledInput from "../../../../components/styledInput/StyledInput";
 import StyledButton from "../../../../components/styledButton/StyledButton";
 import Container from "../../../../components/container/Container";
@@ -28,10 +29,15 @@ function LoginContent(props: LoginContentSpecs): React.JSX.Element {
           name="login"
         />
         <span onClick={() => setPannelPage("reset-pwd-info")}>Forgot Password ?</span>
-        <StyledButton
-          text="Login"
-          onClick={() => setPannelPage("login")}
-        />
+        <Link
+          to="/home"
+          style={{ width: '60%' }}
+        >
+          <StyledButton
+            text="Login"
+            onClick={() => setPannelPage("login")}
+          />
+        </Link>
       </form>
       <Container direction="row">
         <p>Don't have an account yet ?</p>
