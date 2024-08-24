@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
 import { loginPageContent } from "../../../../types/types";
+import { Link } from "react-router-dom";
 import StyledInput from "../../../../components/styledInput/StyledInput";
 import StyledButton from "../../../../components/styledButton/StyledButton";
 import Container from "../../../../components/container/Container";
 import "./LoginContent.scss";
-import { Link } from "react-router-dom";
 
 
 interface LoginContentSpecs {
