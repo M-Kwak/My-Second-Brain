@@ -7,7 +7,10 @@ function Homepage() {
   const [selectedApp, setSelectedApp] = useState<application>(null);
 
   return (
-    <Container direction="column" id="HomePage">
+    <Container
+      direction="column"
+      id="HomePage"
+    >
       <header></header>
       <main>
         {selectedApp === null && (
@@ -49,8 +52,7 @@ function Homepage() {
               <img src="/images/barbellIcon.svg" />
             </Container>
           </>
-        )
-        }
+        )}
       </main>
       <footer>Made with spaghetti</footer>
     </Container>
