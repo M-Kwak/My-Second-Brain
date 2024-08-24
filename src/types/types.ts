@@ -9,3 +9,5 @@ export type loginPageContent =
     "reset-pwd-success";
 
 export type direction = 'row' | 'column';
+
+export type application = 'archive' | 'vault' | 'calendar' | 'to-do' | 'progress' | null
