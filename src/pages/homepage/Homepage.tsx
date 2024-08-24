@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Container from "../../components/container/Container";
 import { application } from "../../types/types";
+import Container from "../../components/container/Container";
 import "./Homepage.scss";
 
 function Homepage() {
