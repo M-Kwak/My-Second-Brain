@@ -29,7 +29,10 @@ function LoginContent(props: LoginContentSpecs): React.JSX.Element {
           name="login"
         />
         <span onClick={() => setPannelPage("reset-pwd-info")}>Forgot Password ?</span>
-        <Link to="/home" style={{ width: '60%' }}>
+        <Link
+          to="/home"
+          style={{ width: '60%' }}
+        >
           <StyledButton
             text="Login"
             onClick={() => setPannelPage("login")}
