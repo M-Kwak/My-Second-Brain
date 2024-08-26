@@ -1,13 +1,79 @@
 #HomePage {
+    height: 100vh;
+    justify-content: space-between;
+
+    header {
+        width: 95%;
+        padding-top: 5px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+    }
+
+    #appMainContainer {
+        max-width: 280px;
+    }
+
     .appIconContainer {
         background-color: #222641;
         border-radius: 18px;
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
+        margin: 20px 20px;
     }
 
     img {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    #HomePage {
+        #appMainContainer {
+            max-width: 500px;
+        }
+
+        .appIconContainer {
+            width: 90px;
+            height: 90px;
+            margin: 30px 30px;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #HomePage {
+        header {
+            width: 98.5%;
+            padding-top: 12px;
+
+            img {
+                width: 42px;
+                height: 42px;
+            }
+        }
+
+        #appMainContainer {
+            max-width: 500px;
+        }
+
     }
 }
