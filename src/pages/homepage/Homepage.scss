@@ -6,7 +6,7 @@
         width: 95%;
         padding-top: 5px;
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row-reverse nowrap;
         justify-content: space-between;
         align-items: center;
 
@@ -74,6 +74,5 @@
         #appMainContainer {
             max-width: 500px;
         }
-
     }
 }
