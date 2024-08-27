@@ -12,8 +12,12 @@ function Homepage() {
       id="HomePage"
     >
       <header>
-        <img src="/images/hamburgerIcon.svg" />
         <img src="/images/accountIcon.svg" />
+        {selectedApp !== null &&
+          <img src="/images/hamburgerIcon.svg"
+            onClick={() => setSelectedApp(null)}
+          />
+        }
       </header>
       <main>
         {selectedApp === null && (
@@ -31,7 +35,10 @@ function Homepage() {
                 direction="row"
                 onClick={() => setSelectedApp('calendar')
                 }>
-                <img src="/images/calendarIcon.svg" style={{ width: '50px', height: '50px' }} />
+                <img
+                  src="/images/calendarIcon.svg"
+                  style={{ width: '50px', height: '50px' }}
+                />
               </Container>
               <Container
                 className="appIconContainer"
