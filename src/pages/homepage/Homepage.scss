@@ -25,6 +25,11 @@
         max-width: 280px;
     }
 
+    #CalendarIcon {
+        width: 50px;
+        height: 50px;
+    }
+
     .appIconContainer {
         background-color: #222641;
         border-radius: 18px;
@@ -37,7 +42,6 @@
         width: 60px;
         height: 60px;
     }
-
 }
 
 @media screen and (min-width: 768px) {
@@ -46,10 +50,24 @@
             max-width: 500px;
         }
 
+        #CalendarIcon {
+            width: 60px;
+            height: 60px;
+        }
+
         .appIconContainer {
             width: 90px;
             height: 90px;
             margin: 30px 30px;
+        }
+
+        header {
+            padding-top: 12px;
+
+            img {
+                width: 36px;
+                height: 36px;
+            }
         }
 
         img {
@@ -73,6 +91,12 @@
 
         #appMainContainer {
             max-width: 500px;
+            margin: 0;
+            z-index: 1;
+        }
+
+        img {
+            cursor: pointer;
         }
     }
 }

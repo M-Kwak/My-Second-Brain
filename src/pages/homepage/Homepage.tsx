@@ -22,7 +22,10 @@ function Homepage() {
       <main>
         {selectedApp === null && (
           <>
-            <Container id="appMainContainer" direction="row">
+            <Container
+              id="appMainContainer"
+              direction="row"
+            >
               <Container
                 className="appIconContainer"
                 direction="row"
@@ -37,7 +40,7 @@ function Homepage() {
                 }>
                 <img
                   src="/images/calendarIcon.svg"
-                  style={{ width: '50px', height: '50px' }}
+                  id="CalendarIcon"
                 />
               </Container>
               <Container
