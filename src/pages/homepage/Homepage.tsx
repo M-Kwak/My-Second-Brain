@@ -65,6 +65,25 @@ function Homepage() {
                 <img src="/images/barbellIcon.svg" />
               </Container>
             </Container>
+            <Container
+              direction="row"
+              id="desktopSummaryContainer"
+            >
+              <Container direction="column">
+                <Container direction="column">
+                  <p>TODO - Calendar summary</p>
+                </Container>
+                <Container direction="column">
+                  <p>TODO - Todolist summary</p>
+                </Container>
+                <Container direction="column">
+                  <p>TODO - Progress summary</p>
+                </Container>
+              </Container>
+              <Container direction="column">
+                <p>Welcome back !<br />Hover an application to reveal a preview</p>
+              </Container>
+            </Container>
           </>
         )}
       </main>

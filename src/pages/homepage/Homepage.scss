@@ -30,6 +30,10 @@
         height: 50px;
     }
 
+    #desktopSummaryContainer {
+        display: none;
+    }
+
     .appIconContainer {
         background-color: #222641;
         border-radius: 18px;
@@ -79,9 +83,58 @@
 
 @media screen and (min-width: 1025px) {
     #HomePage {
+        justify-content: space-between;
+
+        #appMainContainer {
+            max-width: 100%;
+            margin-top: 80px;
+            padding-bottom: 100px;
+        }
+
+        #desktopSummaryContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            & > :first-child {
+                width: 25%;
+
+                & > * {
+                    width: 100%;
+                    height: 200px;
+                    margin: 20px 0;
+                    border: 1px lightblue solid;
+                }
+            }
+
+            & > :nth-child(2) {
+                width: 65%;
+            }
+        }
+
+        #CalendarIcon {
+            width: 55px;
+            height: 55px;
+        }
+
+        .appIconContainer {
+            width: 75px;
+            height: 75px;
+            margin: 0px 20px;
+        }
+
+        main {
+            width: 100vw;
+            flex-direction: column;
+            padding: 0 50px;
+            z-index: 2;
+        }
+
         header {
             width: 98.5%;
             padding-top: 12px;
+            z-index: 1;
 
             img {
                 width: 42px;
@@ -89,13 +142,9 @@
             }
         }
 
-        #appMainContainer {
-            max-width: 500px;
-            margin: 0;
-            z-index: 1;
-        }
-
         img {
+            width: 70px;
+            height: 70px;
             cursor: pointer;
         }
     }
