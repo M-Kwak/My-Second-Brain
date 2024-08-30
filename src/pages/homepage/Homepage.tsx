@@ -3,7 +3,34 @@ import { application } from "../../types/types";
 import Container from "../../components/container/Container";
 import "./Homepage.scss";
 
+type iconType = {
+  name: application,
+  image: string,
+};
+
 function Homepage() {
+  const apps: iconType[] = [
+    {
+      name: 'archive',
+      image: '/images/brainIcon.svg'
+    },
+    {
+      name: 'calendar',
+      image: '/images/calendarIcon.svg'
+    },
+    {
+      name: 'to-do',
+      image: '/images/todolistIcon.svg'
+    },
+    {
+      name: 'vault',
+      image: '/images/vaultIcon.svg'
+    },
+    {
+      name: 'progress',
+      image: '/images/barbellIcon.svg'
+    },
+  ]
   const [selectedApp, setSelectedApp] = useState<application>(null);
 
   return (
@@ -26,44 +53,19 @@ function Homepage() {
               id="appMainContainer"
               direction="row"
             >
-              <Container
-                className="appIconContainer"
-                direction="row"
-                onClick={() => setSelectedApp('archive')}
-              >
-                <img src="/images/brainIcon.svg" />
-              </Container>
-              <Container
-                className="appIconContainer"
-                direction="row"
-                onClick={() => setSelectedApp('calendar')
-                }>
-                <img
-                  src="/images/calendarIcon.svg"
-                  id="CalendarIcon"
-                />
-              </Container>
-              <Container
-                className="appIconContainer"
-                direction="row"
-                onClick={() => setSelectedApp('to-do')}
-              >
-                <img src="/images/todolistIcon.svg" />
-              </Container>
-              <Container
-                className="appIconContainer"
-                direction="row"
-                onClick={() => setSelectedApp('vault')}
-              >
-                <img src="/images/vaultIcon.svg" />
-              </Container>
-              <Container
-                className="appIconContainer"
-                direction="row"
-                onClick={() => setSelectedApp('progress')}
-              >
-                <img src="/images/barbellIcon.svg" />
-              </Container>
+              {apps.map((icon) => (
+                <Container
+                  key={icon.name}
+                  className="appIconContainer"
+                  direction="row"
+                  onClick={() => setSelectedApp( icon.name )}
+                >
+                  <img
+                    src={icon.image}
+                    id={icon.name === "calendar" ? "CalendarIcon" : undefined}
+                  />
+                </Container>
+              ))}
             </Container>
             <Container
               direction="row"
@@ -71,17 +73,17 @@ function Homepage() {
             >
               <Container direction="column">
                 <Container direction="column">
-                  <p>TODO - Calendar summary</p>
+                  <p>TODO - Calendar</p>
                 </Container>
                 <Container direction="column">
-                  <p>TODO - Todolist summary</p>
+                  <p>TODO - Todolist</p>
                 </Container>
                 <Container direction="column">
-                  <p>TODO - Progress summary</p>
+                  <p>TODO - Progress</p>
                 </Container>
               </Container>
               <Container direction="column">
-                <p>Welcome back !<br />Hover an application to reveal a preview</p>
+                <h1>Welcome back !<br />Hover an application to reveal a preview</h1>
               </Container>
             </Container>
           </>

@@ -87,7 +87,6 @@
 
         #appMainContainer {
             max-width: 100%;
-            margin-top: 80px;
             padding-bottom: 100px;
         }
 
@@ -98,7 +97,7 @@
             align-items: center;
 
             & > :first-child {
-                width: 25%;
+                width: 30%;
 
                 & > * {
                     width: 100%;
@@ -109,7 +108,7 @@
             }
 
             & > :nth-child(2) {
-                width: 65%;
+                width: 62%;
             }
         }
 
@@ -121,7 +120,7 @@
         .appIconContainer {
             width: 75px;
             height: 75px;
-            margin: 0px 20px;
+            margin: 0px 26px;
         }
 
         main {
@@ -129,6 +128,11 @@
             flex-direction: column;
             padding: 0 50px;
             z-index: 2;
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 265px;
+            }
         }
 
         header {
