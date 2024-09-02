@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { application } from "../../types/types";
 import Container from "../../components/container/Container";
 import "./Homepage.scss";
@@ -32,6 +32,33 @@ function Homepage() {
     },
   ]
   const [selectedApp, setSelectedApp] = useState<application>(null);
+  const [appHovered, setAppHovered] = useState<application>(null);
+
+  useEffect(() => {
+    const appIcons: HTMLCollectionOf<Element> = document.getElementsByClassName('appIconContainer');
+
+    const handleMouseOver = (event: Event) => {
+      const target: HTMLElement = (event.currentTarget as HTMLElement);
+      const appName: string | application = target.getAttribute('data-name');
+      setAppHovered(appName as application);
+    };
+
+    const handleMouseOut = () => {
+      setAppHovered(null);
+    };
+
+    Array.from(appIcons).forEach(icon => {
+      icon.addEventListener('mouseover', handleMouseOver);
+      icon.addEventListener('mouseout', handleMouseOut);
+    });
+
+    return () => {
+      Array.from(appIcons).forEach(icon => {
+        icon.removeEventListener('mouseover', handleMouseOver);
+        icon.removeEventListener('mouseout', handleMouseOut);
+      });
+    };
+  }, []);
 
   return (
     <Container
@@ -53,16 +80,17 @@ function Homepage() {
               id="appMainContainer"
               direction="row"
             >
-              {apps.map((icon) => (
+              {apps.map((app) => (
                 <Container
-                  key={icon.name}
+                  key={app.name}
                   className="appIconContainer"
+                  dataName={app.name}
                   direction="row"
-                  onClick={() => setSelectedApp( icon.name )}
+                  onClick={() => setSelectedApp(app.name)}
                 >
                   <img
-                    src={icon.image}
-                    id={icon.name === "calendar" ? "CalendarIcon" : undefined}
+                    src={app.image}
+                    id={app.name === "calendar" ? "CalendarIcon" : undefined}
                   />
                 </Container>
               ))}
@@ -83,7 +111,16 @@ function Homepage() {
                 </Container>
               </Container>
               <Container direction="column">
-                <h1>Welcome back !<br />Hover an application to reveal a preview</h1>
+                {appHovered === null ? (
+                  <h1>Welcome back !<br />Hover an application to reveal a preview</h1>
+                ) : (
+                  <Container
+                    id="appPreviewContainer"
+                    direction="column"
+                  >
+                    <h2>{appHovered}</h2>
+                  </Container>
+                )}
               </Container>
             </Container>
           </>
