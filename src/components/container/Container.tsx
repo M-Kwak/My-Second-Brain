@@ -1,17 +1,18 @@
 import { ReactNode } from "react";
 import "./Container.scss";
-import { direction } from "../../types/types";
+import { application, direction } from "../../types/types";
 
 interface ContainerSpecs {
   children: ReactNode,
   direction: direction,
   id?: string,
   className?: string;
+  dataName?: string | application;
   onClick?: () => void;
 }
 
 function Container(props: ContainerSpecs): React.JSX.Element {
-  const { children, direction, id, className, onClick } = props;
+  const { children, direction, id, className, dataName, onClick } = props;
 
   return (
     <div
@@ -19,6 +20,7 @@ function Container(props: ContainerSpecs): React.JSX.Element {
       className={`container ${className}`}
       style={{ flexFlow: `${direction} wrap` }}
       onClick={onClick}
+      data-name={dataName}
     >
       {children}
     </div>
