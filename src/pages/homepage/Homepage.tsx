@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { application } from "../../types/types";
 import Container from "../../components/container/Container";
 import "./Homepage.scss";
+import CurvedLine from "../../components/curvedLine/CurvedLine";
 
 type iconType = {
   name: application,
@@ -37,13 +38,13 @@ function Homepage() {
   useEffect(() => {
     const appIcons: HTMLCollectionOf<Element> = document.getElementsByClassName('appIconContainer');
 
-    const handleMouseOver = (event: Event) => {
+    const handleMouseOver: (event: Event) => void = (event: Event) => {
       const target: HTMLElement = (event.currentTarget as HTMLElement);
       const appName: string | application = target.getAttribute('data-name');
       setAppHovered(appName as application);
     };
 
-    const handleMouseOut = () => {
+    const handleMouseOut: () => void = () => {
       setAppHovered(null);
     };
 
@@ -118,16 +119,17 @@ function Homepage() {
                     id="appPreviewContainer"
                     direction="column"
                   >
-                    <h2>{appHovered}</h2>
+                    <h2>{appHovered.toUpperCase()}</h2>
                   </Container>
                 )}
               </Container>
             </Container>
+            <CurvedLine />
           </>
         )}
       </main>
       <footer>Made with spaghetti</footer>
-    </Container>
+    </Container >
   );
 }
 
