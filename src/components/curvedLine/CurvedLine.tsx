@@ -15,7 +15,7 @@ function CurvedLine() {
           cy="100"
           r="880"
           stroke="url(#gradient)"
-          strokeWidth="1"
+          strokeWidth="0.4"
           fill="transparent"
         />
       </svg>
