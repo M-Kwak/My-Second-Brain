@@ -13,7 +13,7 @@ function StyledInput(props: StyledInputSpecs) {
     <>
       <input
         id={id}
-        className="styledInput"
+        className={`styledInput ${placeholder === 'Confirm password' ? 'Password' : placeholder}`}
         type={type}
         placeholder={placeholder}
         name={name}
