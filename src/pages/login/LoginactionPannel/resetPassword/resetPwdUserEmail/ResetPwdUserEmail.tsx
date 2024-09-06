@@ -4,6 +4,7 @@ import Container from "../../../../../components/container/Container";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./ResetPwdUserEmail.scss";
+import ReturnButton from "../../../../../components/returnButton/ReturnButton";
 
 interface ResetPwdUserEmailSpecs {
   setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
@@ -34,7 +35,7 @@ function ResetPwdUserEmail(props: ResetPwdUserEmailSpecs): React.JSX.Element {
           />
         </form>
       </Container>
-      <span onClick={() => setPannelPage("login")}>return</span>
+      <ReturnButton setPannelPage={setPannelPage} />
     </Container>
   );
 }

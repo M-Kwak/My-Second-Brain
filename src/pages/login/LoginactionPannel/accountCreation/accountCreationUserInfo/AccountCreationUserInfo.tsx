@@ -4,6 +4,7 @@ import Container from "../../../../../components/container/Container";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
 import "./AccountCreationUserInfo.scss"
+import ReturnButton from "../../../../../components/returnButton/ReturnButton";
 
 interface AccountCreationUserInfoSpecs {
   setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
@@ -36,7 +37,7 @@ function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX
           onClick={() => setPannelPage("create-account-email-success")}
         />
       </form>
-      <span onClick={() => setPannelPage("login")}>return</span>
+      <ReturnButton setPannelPage={setPannelPage} />
     </Container>
   );
 }
