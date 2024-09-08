@@ -128,7 +128,6 @@ function Homepage() {
           </>
         )}
       </main>
-      <footer>Made with spaghetti</footer>
     </Container >
   );
 }
