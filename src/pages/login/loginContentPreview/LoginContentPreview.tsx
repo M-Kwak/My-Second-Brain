@@ -1,3 +1,4 @@
+import ArchiveTopicPreview from "../../../components/archiveTopicPreview/ArchiveTopicPreview";
 import Container from "../../../components/container/Container";
 import "./LoginContentPreview.scss";
 
@@ -28,9 +29,24 @@ function LoginContentPreview(): React.JSX.Element {
         >
           <p>Create topics</p>
           <Container direction="row">
-            <div className="archiveTopicExemple">Training</div>
-            <div className="archiveTopicExemple">Cooking</div>
-            <div className="archiveTopicExemple">React</div>
+            <ArchiveTopicPreview
+              className="archiveTopicExemple"
+              name="Painting"
+              chapterNumber={14}
+              icon="/images/paintingArt.svg"
+            />
+            <ArchiveTopicPreview
+              className="archiveTopicExemple"
+              name="Cooking"
+              chapterNumber={3}
+              icon="/images/cookHat.svg"
+            />
+            <ArchiveTopicPreview
+              className="archiveTopicExemple"
+              name="Astronomy"
+              chapterNumber={9}
+              icon="/images/telescope.svg"
+            />
           </Container>
         </Container>
         <Container
