@@ -39,7 +39,7 @@
         width: 35%;
         > :first-child {
             opacity: 0;
-            transform: translateX(100%);
+            transform: translateX(20%);
             animation: fadeIn 1.5s ease forwards, translate 0.8s ease-out forwards;
         }
     }
