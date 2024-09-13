@@ -27,7 +27,7 @@ function LoginContentPreview(): React.JSX.Element {
           direction="column"
           className="innerAppPreviewContainer"
         >
-          <p>Create topics</p>
+          <p style={{ marginBottom: 0 }}>Create topics</p>
           <Container direction="row">
             <ArchiveTopicPreview
               className="archiveTopicExemple"
