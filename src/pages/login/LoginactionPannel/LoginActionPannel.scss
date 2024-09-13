@@ -9,7 +9,7 @@
 
 @keyframes translate {
     from {
-        transform: translate(20%);
+        transform: translate(12%);
     }
     to {
         transform: translate(0);
@@ -39,7 +39,7 @@
         width: 35%;
         > :first-child {
             opacity: 0;
-            transform: translateX(20%);
+            transform: translateX(12%);
             animation: fadeIn 1.5s ease forwards, translate 0.8s ease-out forwards;
         }
     }
