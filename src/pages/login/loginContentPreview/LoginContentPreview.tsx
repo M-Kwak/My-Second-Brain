@@ -1,6 +1,7 @@
 import Container from "../../../components/container/Container";
 import ArchivePreview from "../archivePreview/ArchivePreview";
 import CalendarPreview from "../calendarPreview/CalendarPreview";
+import ProgressPreview from "../progressPreview/ProgressPreview";
 import VaultPreview from "../vaultPreview/VaultPreview";
 import "./LoginContentPreview.scss";
 
@@ -14,15 +15,12 @@ function LoginContentPreview(): React.JSX.Element {
       <ArchivePreview />
       <VaultPreview />
       <CalendarPreview />
+      <ProgressPreview />
       <Container
         direction="column"
         className="appPreviewContainer"
       >
         <h3>And many more to come !</h3>
-        <img
-          src="/images/barbellIcon.svg"
-          alt="barbell icon"
-        />
         <img
           src="/images/todolistIcon.svg"
           alt="barbell icon"
