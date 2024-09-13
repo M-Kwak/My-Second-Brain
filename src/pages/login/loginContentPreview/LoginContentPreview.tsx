@@ -1,5 +1,7 @@
-import ArchiveTopicPreview from "../../../components/archiveTopicPreview/ArchiveTopicPreview";
 import Container from "../../../components/container/Container";
+import ArchivePreview from "../archivePreview/ArchivePreview";
+import CalendarPreview from "../calendarPreview/CalendarPreview";
+import VaultPreview from "../vaultPreview/VaultPreview";
 import "./LoginContentPreview.scss";
 
 function LoginContentPreview(): React.JSX.Element {
@@ -9,90 +11,9 @@ function LoginContentPreview(): React.JSX.Element {
       id="loginPreviewMainContainer"
     >
       <h2>The world is too vast to remember everything,<br /> treat yourself to a second <span id="titleBrain">brain</span> !</h2>
-      <Container
-        direction="column"
-        className="appPreviewContainer"
-      >
-        <Container
-          direction="column"
-          className="innerAppPreviewContainer"
-        >
-          <img
-            src="/images/brainIcon.svg"
-            alt="brain icon"
-          />
-          <h3>Archive your knowledge</h3>
-        </Container>
-        <Container
-          direction="column"
-          className="innerAppPreviewContainer"
-        >
-          <p style={{ marginBottom: 0 }}>Create topics</p>
-          <Container direction="row">
-            <ArchiveTopicPreview
-              className="archiveTopicExemple"
-              name="Painting"
-              chapterNumber={14}
-              icon="/images/paintingArt.svg"
-            />
-            <ArchiveTopicPreview
-              className="archiveTopicExemple"
-              name="Cooking"
-              chapterNumber={3}
-              icon="/images/cookHat.svg"
-            />
-            <ArchiveTopicPreview
-              className="archiveTopicExemple"
-              name="Astronomy"
-              chapterNumber={9}
-              icon="/images/telescope.svg"
-            />
-          </Container>
-        </Container>
-        <Container
-          direction="column"
-          className="innerAppPreviewContainer"
-        >
-          <p>And fill it with chapter, images and texts.</p>
-          <div className="appPreview">ARCHIVE APP EXEMPLE</div>
-        </Container>
-      </Container>
-      <Container
-        direction="column"
-        className="appPreviewContainer"
-      >
-        <Container
-          direction="column"
-          className="innerAppPreviewContainer"
-        >
-          <img
-            src="/images/vaultIcon.svg"
-            alt="vault icon"
-          />
-          <h3>Store your documents</h3>
-        </Container>
-        <Container direction="column">
-          <div className="appPreview">VAULT APP EXEMPLE</div>
-        </Container>
-      </Container>
-      <Container
-        direction="column"
-        className="appPreviewContainer"
-      >
-        <Container
-          direction="column"
-          className="innerAppPreviewContainer"
-        >
-          <img
-            src="/images/calendarIcon.svg"
-            alt="calendar icon"
-          />
-          <h3>Schedule your time and events</h3>
-        </Container>
-        <Container direction="column">
-          <div className="appPreview">CALENDAR APP EXEMPLE</div>
-        </Container>
-      </Container>
+      <ArchivePreview />
+      <VaultPreview />
+      <CalendarPreview />
       <Container
         direction="column"
         className="appPreviewContainer"
