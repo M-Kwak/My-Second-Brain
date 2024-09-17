@@ -2,6 +2,7 @@ import Caroussel from "../../../components/caroussel/Caroussel";
 import Container from "../../../components/container/Container";
 import ArchivePreview from "../archivePreview/ArchivePreview";
 import CalendarPreview from "../calendarPreview/CalendarPreview";
+import ProgressPreview from "../progressPreview/ProgressPreview";
 import VaultPreview from "../vaultPreview/VaultPreview";
 import "./LoginContentPreview.scss";
 
