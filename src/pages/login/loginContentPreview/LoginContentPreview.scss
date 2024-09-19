@@ -5,11 +5,9 @@
 @media screen and (min-width: 1025px) {
     #loginPreviewMainContainer {
         display: flex;
-        justify-content: space-between;
-        position: absolute;
-        top: 0;
-        left: 0;
+        justify-content: flex-start;
         width: 65%;
+        height: 100%;
         padding: 60px 0px;
         background-color: #161829;
 
@@ -42,6 +40,8 @@
         }
 
         .appPreviewContainer {
+            height: 90%;
+            justify-content: flex-start;
             margin-bottom: 20px;
         }
     
@@ -59,8 +59,8 @@
         }
     
         .appPreview {
-            width: 650px;
-            height: 365px;
+            width: 640px;
+            height: 275px;
             border-radius: 8px;
             background-color: #2F3660;
         }
