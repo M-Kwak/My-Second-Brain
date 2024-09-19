@@ -1,35 +1,41 @@
 import './Caroussel.scss';
 import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
 import Container from "../container/Container";
+import { carousselDirection } from '../../types/types';
 
 interface CarousselSpecs {
   children: ReactNode[],
 }
 
 interface swapContentSpecs {
-  length: number,
+  totalContentLength: number,
   setCurrentContentIndex: Dispatch<SetStateAction<number>>,
 }
 
 interface handleBulletListClickSpecs {
-  index: number,
+  currentContentIndex: number,
   setCurrentContentIndex: Dispatch<SetStateAction<number>>,
+  totalContentLength: number,
   setManualMod: Dispatch<SetStateAction<boolean>>,
+  direction: carousselDirection,
 }
 
 
 const swapContent = (props: swapContentSpecs) => {
-  const { length, setCurrentContentIndex } = props;
+  const { totalContentLength, setCurrentContentIndex } = props;
 
   return setInterval(() => {
-    setCurrentContentIndex((index) => index === length - 1 ? 0 : index + 1);
-  }, 2000);
+    setCurrentContentIndex((index) => index === totalContentLength - 1 ? 0 : index + 1);
+  }, 5000);
 }
 
 const handleBulletListClick = (props: handleBulletListClickSpecs) => {
-  const { index, setCurrentContentIndex, setManualMod } = props;
-
-  setCurrentContentIndex(index);
+  const { currentContentIndex, setCurrentContentIndex, totalContentLength, setManualMod, direction } = props;
+  let newIndex: number = currentContentIndex;
+  newIndex = direction === 'backward' ? newIndex - 1 : newIndex + 1;
+  if (newIndex < 0) newIndex = totalContentLength - 1;
+  if (newIndex > totalContentLength - 1) newIndex = 0;
+  setCurrentContentIndex(newIndex);
   setManualMod(true);
 }
 
@@ -40,7 +46,7 @@ function Caroussel(props: CarousselSpecs): JSX.Element {
 
   useEffect(() => {
     if (manualMod) return;
-    const intervalId = swapContent({ length: children.length, setCurrentContentIndex });
+    const intervalId = swapContent({ totalContentLength: children.length, setCurrentContentIndex });
     return () => clearInterval(intervalId);
   }, [children, manualMod]);
 
@@ -50,11 +56,26 @@ function Caroussel(props: CarousselSpecs): JSX.Element {
       direction="column"
     >
       {children[currentContentIndex]}
-      <ul>
-        {children.map((content, index) => (
-          <li key={index} onClick={() => handleBulletListClick({ index, setCurrentContentIndex, setManualMod })}></li>
-        ))}
-      </ul>
+      <Container direction="row">
+        <button onClick={() => handleBulletListClick({
+          currentContentIndex,
+          setCurrentContentIndex,
+          totalContentLength: children.length,
+          setManualMod,
+          direction: 'backward'
+        })}
+        ></button>
+
+        <button onClick={() => setManualMod(false)}></button>
+        <button onClick={() => handleBulletListClick({
+          currentContentIndex,
+          setCurrentContentIndex,
+          totalContentLength: children.length,
+          setManualMod,
+          direction: 'forward'
+        })}
+        ></button>
+      </Container>
     </Container>
   );
 }
