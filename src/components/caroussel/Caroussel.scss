@@ -3,6 +3,70 @@
         flex-flow: column nowrap;
         justify-content: space-between;
         height: 80%;
+        
+        @keyframes popFromLeft {
+            from {
+                transform: translateX(-200px);
+                opacity: 0;
+            }   
+            to {
+                transform: translateX(0px);
+                opacity: 1;
+            } 
+        }
+        
+        @keyframes popFromRight {
+            from {
+                transform: translateX(200px);
+                opacity: 0;
+            }   
+            to {
+                transform: translateX(0px);
+                opacity: 1;
+            } 
+        }
+        
+        @keyframes pushToLeft {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }   
+            to {
+                transform: translateX(-200px);
+                opacity: 0;
+            } 
+        }
+        
+        @keyframes pushToRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }   
+            to {
+                transform: translateX(200px);
+                opacity: 0;
+            } 
+        }
+
+        .popFromLeft {
+            animation: popFromLeft 0.6s ease-in-out;
+        }
+
+        .popFromRight {
+            animation: popFromRight 0.6s ease-in-out;
+        }
+
+        .pushToLeft {
+            animation: pushToLeft 0.6s ease-in-out;
+        }
+
+        .pushToRight {
+            animation: pushToRight 0.6s ease-in-out;
+        }
+
+        > :first-child {
+            position: relative;
+        }
 
         > :last-child {
             width: 140px;
@@ -16,7 +80,7 @@
                 height: 20px;
                 border: 0;
                 cursor: pointer;
-                background-color: rgba(255, 255, 255, 0.544);
+                background-color: rgb(138, 138, 138);
                 transition: background-color 0.4s ease;
             }
             
@@ -28,9 +92,12 @@
                 border-radius: 1px 100px 100px 100px;
                 transform: rotate(-45deg);
             }
+
             > :nth-child(2) {
                 border-radius: 100%;
+                border: none;
             }
+
             > :nth-child(3) {
                 border-radius: 1px 100px 100px 100px;
                 transform: rotate(135deg);
