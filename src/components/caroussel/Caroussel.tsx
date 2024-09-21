@@ -145,7 +145,7 @@ function Caroussel(props: CarousselSpecs): JSX.Element {
       direction="column"
     >
       <div
-        style={{ height: '91%' }}
+        style={{ height: '80%' }}
         ref={previewRef}
       >
         {children[currentContentIndex]}
