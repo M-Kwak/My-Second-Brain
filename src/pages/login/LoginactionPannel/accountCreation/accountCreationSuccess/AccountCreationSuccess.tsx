@@ -1,15 +1,17 @@
-import { Dispatch, SetStateAction } from "react";
-import { loginPageContent } from "../../../../../types/types";
+import { carousselDirection, loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./AccountCreationSuccess.scss";
 
 interface AccountCreationSuccessSpecs {
-  setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
+  handleContentChange: (
+    direction: carousselDirection,
+    newContentName: loginPageContent,
+  ) => void,
 }
 
 function AccountCreationSuccess(props: AccountCreationSuccessSpecs): React.JSX.Element {
-  const { setPannelPage } = props;
+  const { handleContentChange } = props;
   return (
     <Container
       direction="column"
@@ -24,7 +26,7 @@ function AccountCreationSuccess(props: AccountCreationSuccessSpecs): React.JSX.E
         <p>Your account has been created with success !</p>
         <StyledButton
           text="Back to login"
-          onClick={() => setPannelPage("login")}
+          onClick={() => handleContentChange("backward", "login")}
         />
       </Container>
     </Container> 

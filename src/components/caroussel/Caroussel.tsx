@@ -2,6 +2,7 @@ import './Caroussel.scss';
 import { Dispatch, ReactNode, SetStateAction, useEffect, useRef, useState } from "react";
 import Container from "../container/Container";
 import { carousselDirection } from '../../types/types';
+import { removeAllAnimationClasses } from '../../utils/genericFunctions';
 
 interface CarousselSpecs {
   children: ReactNode[],
@@ -26,16 +27,6 @@ interface handleBulletListClickSpecs {
   setIsBulletActive: Dispatch<SetStateAction<boolean>>,
 }
 
-const removeAllClasses = (currentPreviewRef: HTMLDivElement) => {
-  if (!currentPreviewRef) return;
-  currentPreviewRef.classList.remove('fadeIn');
-  currentPreviewRef.classList.remove('fadeOut');
-  currentPreviewRef.classList.remove('pushToLeft');
-  currentPreviewRef.classList.remove('pushToRight');
-  currentPreviewRef.classList.remove('popFromLeft');
-  currentPreviewRef.classList.remove('popFromRight');
-}
-
 // cannot reuse function handleBulletListClick -> (too many changes)
 const autoSwapContent = (props: swapContentSpecs) => {
   const {
@@ -53,20 +44,20 @@ const autoSwapContent = (props: swapContentSpecs) => {
     if (!currentPreview) return;
     let newIndex: number = currentContentIndex;
 
-    removeAllClasses(currentPreview);
+    removeAllAnimationClasses(currentPreview);
     setIsBulletActive(false);
     newIndex = (newIndex + 1) > totalContentLength - 1 ? 0 : newIndex + 1;
     currentPreview.classList.add('pushToLeft');
 
     // after previous content has finished its slide-out animation
     setTimeout(() => {
-      removeAllClasses(currentPreview);
+      removeAllAnimationClasses(currentPreview);
       setCurrentContentIndex(newIndex);
       currentPreview.classList.add('popFromRight');
 
       // after new content has finished its slide-in animation
       setTimeout(() => {
-        removeAllClasses(currentPreview);
+        removeAllAnimationClasses(currentPreview);
         setIsBulletActive(true);
       }, 600);
     }, 520);
@@ -90,34 +81,27 @@ const handleBulletListClick = (props: handleBulletListClickSpecs) => {
   const currentPreview = previewRef.current;
   if (!currentPreview) return;
   let newIndex: number = currentContentIndex;
+  const animationClassName: string[] = direction === 'forward' ? ['pushToLeft', 'popFromRight'] : ['pushToRight', 'popFromLeft'];
 
   setIsBulletActive(false);
   setAutoSwapMod(false);
 
-  if (direction === 'backward') {
-    newIndex = (newIndex - 1) < 0 ? totalContentLength - 1 : newIndex - 1;
-    currentPreview.classList.add('pushToRight');
-  }
-  else {
-    newIndex = (newIndex + 1) > totalContentLength - 1 ? 0 : newIndex + 1;
-    currentPreview.classList.add('pushToLeft');
-  }
-
+  if (direction === 'forward') newIndex = (newIndex + 1) > totalContentLength - 1 ? 0 : newIndex + 1;
+  else newIndex = (newIndex - 1) < 0 ? totalContentLength - 1 : newIndex - 1;
+  currentPreview.classList.add(animationClassName[0]);
+  
   // after previous content has finished its slide-out animation
   setTimeout(() => {
-    removeAllClasses(currentPreview);
+    removeAllAnimationClasses(currentPreview);
     setCurrentContentIndex(newIndex);
-
-    if (direction === 'backward') currentPreview.classList.add('popFromLeft');
-    else currentPreview.classList.add('popFromRight');
+    currentPreview.classList.add(animationClassName[1]);    
 
     // after new content has finished its slide-in animation
     setTimeout(() => {
-      removeAllClasses(currentPreview);
+      removeAllAnimationClasses(currentPreview);
       setIsBulletActive(true);
     }, 600);
   }, 520);
-
 }
 
 function Caroussel(props: CarousselSpecs): JSX.Element {

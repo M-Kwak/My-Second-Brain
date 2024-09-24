@@ -1,17 +1,25 @@
-import { Dispatch, SetStateAction } from "react";
-import { loginPageContent } from "../../../../../types/types";
+import { carousselDirection, loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
-import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./ResetPwdUserEmail.scss";
 import ReturnButton from "../../../../../components/returnButton/ReturnButton";
+import { FormEvent } from "react";
+import StyledSubmitInput from "../../../../../components/styledSubmitInput/StyledSubmitInput";
 
 interface ResetPwdUserEmailSpecs {
-  setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
+  handleContentChange: (
+    direction: carousselDirection,
+    newContentName: loginPageContent,
+  ) => void,
 }
 
 function ResetPwdUserEmail(props: ResetPwdUserEmailSpecs): React.JSX.Element {
-  const { setPannelPage } = props;
+  const { handleContentChange } = props;
+  const handleSumbit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleContentChange('forward', 'reset-pwd-email-success')
+  }
+
   return (
     <Container
       direction="column"
@@ -23,19 +31,19 @@ function ResetPwdUserEmail(props: ResetPwdUserEmailSpecs): React.JSX.Element {
         id="content"
       >
         <p>Enter your email address and get a link to reset your password</p>
-        <form>
+        <form onSubmit={(e) => handleSumbit(e)}>
           <StyledInput
             name="resetPwdInfo"
             placeholder="Email"
             id="EmailInput"
           />
-          <StyledButton
-            text="Send an email"
-            onClick={() => setPannelPage("reset-pwd-email-success")}
+          <StyledSubmitInput
+            value="Send an email"
+            name="resetPwdUserEmail"
           />
         </form>
       </Container>
-      <ReturnButton setPannelPage={setPannelPage} />
+      <ReturnButton handleContentChange={handleContentChange} />
     </Container>
   );
 }

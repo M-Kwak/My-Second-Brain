@@ -1,24 +1,32 @@
-import { Dispatch, SetStateAction } from "react";
-import { loginPageContent } from "../../../../../types/types";
+import { carousselDirection, loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
-import StyledButton from "../../../../../components/styledButton/StyledButton";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
 import "./AccountCreationUserInfo.scss"
 import ReturnButton from "../../../../../components/returnButton/ReturnButton";
+import { FormEvent } from "react";
+import StyledSubmitInput from "../../../../../components/styledSubmitInput/StyledSubmitInput";
 
 interface AccountCreationUserInfoSpecs {
-  setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
+  handleContentChange: (
+    direction: carousselDirection,
+    newContentName: loginPageContent,
+  ) => void,
 }
 
 function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX.Element {
-  const { setPannelPage } = props;
+  const { handleContentChange } = props;
+  const handleSumbit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleContentChange('forward', 'create-account-email-success')
+  }
+
   return (
     <Container
       direction="column"
       id="AccountCreationUserInfo"
     >
       <h1>Create an account</h1>
-      <form>
+      <form onSubmit={(e) => handleSumbit(e)}>
         <StyledInput
           name="create-account"
           placeholder="Email"
@@ -31,13 +39,13 @@ function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX
           name="create-account"
           placeholder="Confirm password"
         />
-        <StyledButton
+        <StyledSubmitInput
           id="SubmitButton"
-          text="Join now !"
-          onClick={() => setPannelPage("create-account-email-success")}
+          value="Join now !"
+          name="accountCreationUSerInfo"
         />
       </form>
-      <ReturnButton setPannelPage={setPannelPage} />
+      <ReturnButton handleContentChange={handleContentChange} />
     </Container>
   );
 }

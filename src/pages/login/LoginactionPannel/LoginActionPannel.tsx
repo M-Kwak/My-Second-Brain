@@ -1,6 +1,8 @@
 import "./LoginActionPannel.scss";
-import { useState } from "react";
-import { loginPageContent } from "../../../types/types";
+import "../../../styles/animations.scss";
+import { useRef, useState } from "react";
+import { carousselDirection, loginPageContent } from "../../../types/types";
+import { removeAllAnimationClasses } from "../../../utils/genericFunctions";
 import Container from "../../../components/container/Container";
 import LoginContent from "./loginContent/LoginContent";
 import AccountCreationUserInfo from "./accountCreation/accountCreationUserInfo/AccountCreationUserInfo";
@@ -13,22 +15,54 @@ import ResetPwdSuccess from "./resetPassword/resetPwdSuccess/ResetPwdSuccess";
 
 function LoginActionPannel(): React.JSX.Element {
   const [pannelPage, setPannelPage] = useState<loginPageContent>("login");
+  const contentContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const handleContentChange = (direction: carousselDirection, newContentName: loginPageContent) => {
+    if (
+      !direction ||
+      !newContentName ||
+      !contentContainerRef ||
+      !contentContainerRef.current
+    ) return;
+
+    const currentContentContainer: HTMLDivElement = contentContainerRef.current;
+    const animationClassName: string[] = direction === 'forward' ? ['pushToLeft', 'popFromRight'] : ['pushToRight', 'popFromLeft'];
+
+    currentContentContainer.classList.add(animationClassName[0]);
+
+    // after previous content has finished its slide-out animation
+    setTimeout(() => {
+      removeAllAnimationClasses(currentContentContainer);
+      setPannelPage(newContentName);
+      currentContentContainer.classList.add(animationClassName[1]);
+
+      // after new content has finished its slide-in animation
+      setTimeout(() => {
+        removeAllAnimationClasses(currentContentContainer);
+      }, 600);
+    }, 520);
+  }
 
   return (
     <Container
       direction="column"
       id="loginActionPannelMainContainer"
     >
-      <Container direction="column">
-        {pannelPage === "login" && <LoginContent setPannelPage={setPannelPage} />}
-        {pannelPage === "create-account-info" && <AccountCreationUserInfo setPannelPage={setPannelPage} />}
-        {pannelPage === "create-account-email-success" && <AccountCreationEmailSent setPannelPage={setPannelPage} />}
-        {pannelPage === "create-account-success" && <AccountCreationSuccess setPannelPage={setPannelPage} />}
-        {pannelPage === "reset-pwd-info" && <ResetPwdUserEmail setPannelPage={setPannelPage} />}
-        {pannelPage === "reset-pwd-email-success" && <ResetPwdEmailSent setPannelPage={setPannelPage} />}
-        {pannelPage === "reset-pwd" && <ResetPwd setPannelPage={setPannelPage} />}
-        {pannelPage === "reset-pwd-success" && <ResetPwdSuccess setPannelPage={setPannelPage} />}
-      </Container>
+      <div
+        ref={contentContainerRef}
+        className="popFromRight"
+      >
+        {pannelPage === "login" && (
+          <LoginContent handleContentChange={handleContentChange} />
+        )}
+        {pannelPage === "create-account-info" && <AccountCreationUserInfo handleContentChange={handleContentChange} />}
+        {pannelPage === "create-account-email-success" && <AccountCreationEmailSent handleContentChange={handleContentChange} />}
+        {pannelPage === "create-account-success" && <AccountCreationSuccess handleContentChange={handleContentChange} />}
+        {pannelPage === "reset-pwd-info" && <ResetPwdUserEmail handleContentChange={handleContentChange} />}
+        {pannelPage === "reset-pwd-email-success" && <ResetPwdEmailSent handleContentChange={handleContentChange} />}
+        {pannelPage === "reset-pwd" && <ResetPwd handleContentChange={handleContentChange} />}
+        {pannelPage === "reset-pwd-success" && <ResetPwdSuccess handleContentChange={handleContentChange} />}
+      </div>
     </Container>
   );
 }

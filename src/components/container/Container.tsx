@@ -12,7 +12,14 @@ interface ContainerSpecs {
 }
 
 function Container(props: ContainerSpecs): React.JSX.Element {
-  const { children, direction, id, className, dataName, onClick } = props;
+  const {
+    children,
+    direction,
+    id,
+    className,
+    dataName,
+    onClick
+  } = props;
 
   return (
     <div

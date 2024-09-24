@@ -1,17 +1,19 @@
 import "./ReturnButton.scss";
-import { Dispatch, SetStateAction } from "react";
-import { loginPageContent } from "../../types/types";
+import { carousselDirection, loginPageContent } from "../../types/types";
 
 interface ReturnButtonSpecs {
-  setPannelPage: Dispatch<SetStateAction<loginPageContent>>;
+  handleContentChange: (
+    direction: carousselDirection,
+    newContentName: loginPageContent,
+  ) => void,
 }
 
 function ReturnButton(props: ReturnButtonSpecs) {
-  const { setPannelPage } = props;
+  const { handleContentChange } = props;
   return (
     <span
       id="ReturnButton"
-      onClick={() => setPannelPage("login")}
+      onClick={() => handleContentChange('backward', 'login')}
     >
       <img src="/images/returnIcon.svg" />
       return
