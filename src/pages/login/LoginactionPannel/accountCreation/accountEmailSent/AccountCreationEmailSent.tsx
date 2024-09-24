@@ -1,15 +1,17 @@
-import { Dispatch, SetStateAction } from "react";
 import Container from "../../../../../components/container/Container";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
-import { loginPageContent } from "../../../../../types/types";
+import { carousselDirection, loginPageContent } from "../../../../../types/types";
 import "./AccountCreationEmailSent.scss";
 
 interface AccountCreationEmailSentSpecs {
-  setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
+  handleContentChange: (
+    direction: carousselDirection,
+    newContentName: loginPageContent,
+  ) => void,
 }
 
 function AccountCreationEmailSent(props: AccountCreationEmailSentSpecs): React.JSX.Element {
-  const { setPannelPage } = props;
+  const { handleContentChange } = props;
   const emailTest: string = "test@test.com";
 
   return (
@@ -26,7 +28,7 @@ function AccountCreationEmailSent(props: AccountCreationEmailSentSpecs): React.J
         <p>A verification email has been sent to : {emailTest} <br/> Please check your mailbox to verify your new account before you sign in.</p>
         <StyledButton
           text="Back to login"
-          onClick={() => setPannelPage("login")}
+          onClick={() => handleContentChange("backward", "login")}
         />
       </Container>
     </Container>

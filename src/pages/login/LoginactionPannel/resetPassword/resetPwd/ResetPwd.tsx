@@ -1,23 +1,31 @@
-import { Dispatch, SetStateAction } from "react";
-import { loginPageContent } from "../../../../../types/types";
+import { FormEvent } from "react";
+import { carousselDirection, loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledInput from "../../../../../components/styledInput/StyledInput";
-import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./ResetPwd.scss";
+import StyledSubmitInput from "../../../../../components/styledSubmitInput/StyledSubmitInput";
 
 interface ResetPwdSpecs {
-  setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
+  handleContentChange: (
+    direction: carousselDirection,
+    newContentName: loginPageContent,
+  ) => void,
 }
 
 function ResetPwd(props: ResetPwdSpecs): React.JSX.Element {
-  const { setPannelPage } = props;
+  const { handleContentChange } = props;
+  const handleSumbit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleContentChange('forward', 'reset-pwd-success')
+  }
+
   return (
     <Container
       direction="column"
       id="ResetPwd"
     >
       <h1>Reset password</h1>
-      <form>
+      <form onSubmit={(e) => handleSumbit(e)}>
         <StyledInput
           name="reset-pwd"
           placeholder="New password"
@@ -26,10 +34,10 @@ function ResetPwd(props: ResetPwdSpecs): React.JSX.Element {
           name="reset-pwd"
           placeholder="Confirm new password"
         />
-        <StyledButton
-          text="Reset password"
+        <StyledSubmitInput
           id="SubmitButton"
-          onClick={() => setPannelPage("reset-pwd-success")}
+          value="Reset password"
+          name="resetPwd"
         />
       </form>
     </Container>

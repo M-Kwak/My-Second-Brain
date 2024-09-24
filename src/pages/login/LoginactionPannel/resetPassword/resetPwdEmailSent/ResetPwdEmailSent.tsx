@@ -1,15 +1,17 @@
-import { Dispatch, SetStateAction } from "react";
-import { loginPageContent } from "../../../../../types/types";
+import { carousselDirection, loginPageContent } from "../../../../../types/types";
 import Container from "../../../../../components/container/Container";
 import StyledButton from "../../../../../components/styledButton/StyledButton";
 import "./ResetPwdEmailSent.scss";
 
 interface ResetPwdEmailSentSpecs {
-  setPannelPage: Dispatch<SetStateAction<loginPageContent>>,
+  handleContentChange: (
+    direction: carousselDirection,
+    newContentName: loginPageContent,
+  ) => void,
 }
 
 function ResetPwdEmailSent(props: ResetPwdEmailSentSpecs): React.JSX.Element {
-  const { setPannelPage } = props;
+  const { handleContentChange } = props;
   const emailTest: string = "test@test.com";
 
   return (
@@ -26,7 +28,7 @@ function ResetPwdEmailSent(props: ResetPwdEmailSentSpecs): React.JSX.Element {
         <p>An email has been sent to : {emailTest} <br/> Follow the link inside to reset your password.</p>
         <StyledButton
           text="Back to login"
-          onClick={() => setPannelPage("login")}
+          onClick={() => handleContentChange("backward", "login")}
         />
       </Container>
     </Container>
