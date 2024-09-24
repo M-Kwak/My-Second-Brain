@@ -2,6 +2,7 @@ import "./LoginActionPannel.scss";
 import "../../../styles/animations.scss";
 import { useRef, useState } from "react";
 import { carousselDirection, loginPageContent } from "../../../types/types";
+import { removeAllAnimationClasses } from "../../../utils/genericFunctions";
 import Container from "../../../components/container/Container";
 import LoginContent from "./loginContent/LoginContent";
 import AccountCreationUserInfo from "./accountCreation/accountCreationUserInfo/AccountCreationUserInfo";
@@ -11,7 +12,6 @@ import ResetPwdUserEmail from "./resetPassword/resetPwdUserEmail/ResetPwdUserEma
 import ResetPwdEmailSent from "./resetPassword/resetPwdEmailSent/ResetPwdEmailSent";
 import ResetPwd from "./resetPassword/resetPwd/ResetPwd";
 import ResetPwdSuccess from "./resetPassword/resetPwdSuccess/ResetPwdSuccess";
-import { removeAllAnimationClasses } from "../../../utils/genericFunctions";
 
 function LoginActionPannel(): React.JSX.Element {
   const [pannelPage, setPannelPage] = useState<loginPageContent>("login");
