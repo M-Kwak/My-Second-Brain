@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactNode } from "react";
+import { ReactNode } from "react";
 import "./Container.scss";
 import { application, direction } from "../../types/types";
 
@@ -9,7 +9,6 @@ interface ContainerSpecs {
   className?: string;
   dataName?: string | application;
   onClick?: () => void;
-  ref?: MutableRefObject<HTMLDivElement | null>,
 }
 
 function Container(props: ContainerSpecs): React.JSX.Element {
