@@ -16,9 +16,11 @@ function VaultPreview() {
         />
         <h3>Store your documents</h3>
       </Container>
-      <Container direction="column">
-        <div className="appPreview">VAULT APP EXEMPLE</div>
-      </Container>
+      <img
+        className="appPreview"
+        src="/images/vaultPreview.svg"
+        alt="vault app preview"
+      />
     </Container>
   )
 }

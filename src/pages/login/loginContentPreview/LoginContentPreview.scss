@@ -22,11 +22,11 @@
         h3 {
             font-size: 2.2rem;
         }
-        
+
         p {
             margin-bottom: 8px;
         }
-        
+
         img {
             width: 65px;
             height: 65px;
@@ -44,11 +44,11 @@
             height: 100%;
             justify-content: flex-start;
         }
-    
+
         .innerAppPreviewContainer {
             margin-bottom: 34px;
         }
-    
+
         /* DELETE THIS WHEN ARCHIVE COMPONENT IS DONE !*/
         .archiveTopicExemple {
             width: 190px;
@@ -57,12 +57,19 @@
             border-radius: 8px;
             margin: 0 10px;
         }
-    
+
         .appPreview {
-            width: 640px;
-            height: 245px;
-            border-radius: 8px;
-            background-color: #1f1e33;
+            width: 665px;
+            height: 350px;
+        }
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    #loginPreviewMainContainer {
+        .appPreview {
+            width: 785px;
+            height: 446px;
         }
     }
 }
