@@ -1,5 +1,5 @@
 import './Caroussel.scss';
-import { Dispatch, ReactNode, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, ReactNode, RefObject, SetStateAction, useEffect, useRef, useState } from "react";
 import Container from "../container/Container";
 import { carousselDirection } from '../../types/types';
 import { removeAllAnimationClasses } from '../../utils/genericFunctions';
@@ -10,6 +10,7 @@ interface CarousselSpecs {
 
 interface swapContentSpecs {
   previewRef: React.MutableRefObject<HTMLDivElement | null>,
+  middleCarousselRef: RefObject<HTMLButtonElement>,
   currentContentIndex: number,
   setCurrentContentIndex: Dispatch<SetStateAction<number>>,
   totalContentLength: number,
@@ -18,6 +19,7 @@ interface swapContentSpecs {
 
 interface handleBulletListClickSpecs {
   previewRef: React.MutableRefObject<HTMLDivElement | null>,
+  middleCarousselRef: RefObject<HTMLButtonElement>,
   currentContentIndex: number,
   setCurrentContentIndex: Dispatch<SetStateAction<number>>,
   totalContentLength: number,
@@ -31,6 +33,7 @@ interface handleBulletListClickSpecs {
 const autoSwapContent = (props: swapContentSpecs) => {
   const {
     previewRef,
+    middleCarousselRef,
     currentContentIndex,
     setCurrentContentIndex,
     totalContentLength,
@@ -39,11 +42,18 @@ const autoSwapContent = (props: swapContentSpecs) => {
 
   return setInterval(() => {
 
-    if (!previewRef || !previewRef.current) return;
+    if (
+      !previewRef ||
+      !previewRef.current ||
+      !middleCarousselRef ||
+      !middleCarousselRef.current
+    ) return;
     const currentPreview = previewRef.current;
-    if (!currentPreview) return;
+    const currentMiddleCaroussel = middleCarousselRef.current;
+    if (!currentPreview || !currentMiddleCaroussel) return;
     let newIndex: number = currentContentIndex;
 
+    currentMiddleCaroussel.classList.add('loader');
     removeAllAnimationClasses(currentPreview);
     setIsBulletActive(false);
     newIndex = (newIndex + 1) > totalContentLength - 1 ? 0 : newIndex + 1;
@@ -67,6 +77,7 @@ const autoSwapContent = (props: swapContentSpecs) => {
 const handleBulletListClick = (props: handleBulletListClickSpecs) => {
   const {
     previewRef,
+    middleCarousselRef,
     currentContentIndex,
     setCurrentContentIndex,
     totalContentLength,
@@ -76,25 +87,32 @@ const handleBulletListClick = (props: handleBulletListClickSpecs) => {
     setIsBulletActive,
   } = props;
 
-  if (!isBulletActive) return;
-  if (!previewRef || !previewRef.current) return;
+  if (
+    !isBulletActive ||
+    !previewRef ||
+    !previewRef.current ||
+    !middleCarousselRef ||
+    !middleCarousselRef.current
+  ) return;
   const currentPreview = previewRef.current;
-  if (!currentPreview) return;
+  const currentMiddleCaroussel = middleCarousselRef.current;
+  if (!currentPreview || !currentMiddleCaroussel) return;
   let newIndex: number = currentContentIndex;
   const animationClassName: string[] = direction === 'forward' ? ['pushToLeft', 'popFromRight'] : ['pushToRight', 'popFromLeft'];
 
+  currentMiddleCaroussel.classList.remove('loader');
   setIsBulletActive(false);
   setAutoSwapMod(false);
 
   if (direction === 'forward') newIndex = (newIndex + 1) > totalContentLength - 1 ? 0 : newIndex + 1;
   else newIndex = (newIndex - 1) < 0 ? totalContentLength - 1 : newIndex - 1;
   currentPreview.classList.add(animationClassName[0]);
-  
+
   // after previous content has finished its slide-out animation
   setTimeout(() => {
     removeAllAnimationClasses(currentPreview);
     setCurrentContentIndex(newIndex);
-    currentPreview.classList.add(animationClassName[1]);    
+    currentPreview.classList.add(animationClassName[1]);
 
     // after new content has finished its slide-in animation
     setTimeout(() => {
@@ -110,11 +128,13 @@ function Caroussel(props: CarousselSpecs): JSX.Element {
   const [autoSwapMod, setAutoSwapMod] = useState<boolean>(true);
   const [isBulletActive, setIsBulletActive] = useState<boolean>(true);
   const previewRef = useRef<HTMLDivElement | null>(null);
+  const middleCarousselRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!autoSwapMod) return;
     const intervalId = autoSwapContent({
       previewRef,
+      middleCarousselRef,
       totalContentLength: children.length,
       currentContentIndex,
       setCurrentContentIndex,
@@ -122,6 +142,10 @@ function Caroussel(props: CarousselSpecs): JSX.Element {
     });
     return () => clearInterval(intervalId);
   }, [children, autoSwapMod, currentContentIndex]);
+
+  useEffect(() => {
+    previewRef.current?.classList.add('popFromRight');
+  }, []);
 
   return (
     <Container
@@ -137,6 +161,7 @@ function Caroussel(props: CarousselSpecs): JSX.Element {
       <Container direction="row">
         <button onClick={() => handleBulletListClick({
           previewRef,
+          middleCarousselRef,
           currentContentIndex,
           setCurrentContentIndex,
           totalContentLength: children.length,
@@ -146,13 +171,15 @@ function Caroussel(props: CarousselSpecs): JSX.Element {
           setIsBulletActive,
         })}
         ></button>
-
         <button
+          className="loader"
           style={{ backgroundColor: (autoSwapMod ? 'white' : 'rgb(138, 138, 138)') }}
           onClick={() => setAutoSwapMod(true)}
+          ref={middleCarousselRef}
         ></button>
         <button onClick={() => handleBulletListClick({
           previewRef,
+          middleCarousselRef,
           currentContentIndex,
           setCurrentContentIndex,
           totalContentLength: children.length,
