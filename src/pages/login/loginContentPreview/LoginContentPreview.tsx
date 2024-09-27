@@ -13,9 +13,9 @@ function LoginContentPreview(): React.JSX.Element {
     >
       <h2>The world is too vast to remember everything,<br /> treat yourself to a second <span id="titleBrain">brain</span> !</h2>
       <Caroussel>
-        <ArchivePreview />
-        <VaultPreview />
         <CalendarPreview />
+        <VaultPreview />
+        <ArchivePreview />
       </Caroussel>
     </Container>
   );
