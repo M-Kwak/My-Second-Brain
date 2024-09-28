@@ -6,6 +6,9 @@ import ReturnButton from "../../../../../components/returnButton/ReturnButton";
 import { FormEvent } from "react";
 import StyledSubmitInput from "../../../../../components/styledSubmitInput/StyledSubmitInput";
 
+// DEV MOD ENABLE, PLEASE DELETE ! (look handleSubmit)
+const devMod = true;
+
 interface AccountCreationUserInfoSpecs {
   handleContentChange: (
     direction: carousselDirection,
@@ -17,6 +20,7 @@ function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX
   const { handleContentChange } = props;
   const handleSumbit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (devMod) return;
     handleContentChange('forward', 'create-account-email-success')
   }
 
