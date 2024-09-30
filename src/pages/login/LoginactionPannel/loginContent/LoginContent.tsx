@@ -29,6 +29,7 @@ function LoginContent(props: LoginContentSpecs): React.JSX.Element {
         <StyledInput
           placeholder="Password"
           name="login"
+          type="password"
         />
         <span onClick={() => handleContentChange('forward', 'reset-pwd-info')}>Forgot Password ?</span>
         <Link

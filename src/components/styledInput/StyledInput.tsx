@@ -1,7 +1,7 @@
 import "./StyledInput.scss";
 
 interface StyledInputSpecs {
-  type?: 'text',
+  type?: 'text' | 'password',
   placeholder?: string,
   id?: string,
   name: string,
