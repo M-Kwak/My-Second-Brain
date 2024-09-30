@@ -38,10 +38,12 @@ function AccountCreationUserInfo(props: AccountCreationUserInfoSpecs): React.JSX
         <StyledInput
           name="create-account"
           placeholder="Password"
+          type="password"
         />
         <StyledInput
           name="create-account"
           placeholder="Confirm password"
+          type="password"
         />
         <StyledSubmitInput
           id="SubmitButton"

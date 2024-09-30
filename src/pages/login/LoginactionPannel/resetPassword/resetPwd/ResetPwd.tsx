@@ -29,10 +29,12 @@ function ResetPwd(props: ResetPwdSpecs): React.JSX.Element {
         <StyledInput
           name="reset-pwd"
           placeholder="New password"
+          type="password"
         />
         <StyledInput
           name="reset-pwd"
           placeholder="Confirm new password"
+          type="password"
         />
         <StyledSubmitInput
           id="SubmitButton"
