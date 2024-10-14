@@ -1,6 +1,6 @@
 #HomePage {
     height: 100vh;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     header {
         width: 95%;
@@ -19,6 +19,7 @@
     main {
         display: flex;
         justify-content: center;
+        margin: auto;
     }
 
     #appMainContainer {
