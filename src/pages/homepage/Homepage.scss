@@ -23,7 +23,8 @@
     }
 
     #appMainContainer {
-        max-width: 280px;
+        flex-flow: wrap-reverse !important;
+        width: 100%;
     }
 
     #CalendarIcon {
@@ -40,7 +41,7 @@
         border-radius: 18px;
         width: 70px;
         height: 70px;
-        margin: 20px 20px;
+        margin: 25px 20px;
     }
 
     img {
