@@ -67,9 +67,10 @@ function Homepage() {
       id="HomePage"
     >
       <header>
-        <img src="/images/accountIcon.svg" />
+        <img src="/images/accountIcon.svg"/>
         {selectedApp !== null &&
-          <img src="/images/hamburgerIcon.svg"
+          <img
+            src="/public/images/homeIcon.svg"
             onClick={() => setSelectedApp(null)}
           />
         }

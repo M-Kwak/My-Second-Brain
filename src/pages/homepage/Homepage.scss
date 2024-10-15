@@ -89,7 +89,7 @@
 
     #HomePage {
         justify-content: flex-start;
-
+        
         #appMainContainer {
             max-width: 100%;
             padding-bottom: 50px;
@@ -133,6 +133,7 @@
             width: 75px;
             height: 75px;
             margin: 0px 26px;
+            cursor: pointer;
         }
 
         main {
