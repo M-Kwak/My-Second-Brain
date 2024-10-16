@@ -34,6 +34,20 @@ function Homepage() {
   ]
   const [selectedApp, setSelectedApp] = useState<application>(null);
   const [appHovered, setAppHovered] = useState<application>(null);
+  
+  const appIconsContainer: HTMLDivElement = document.getElementById('appsMainContainer') as HTMLDivElement;
+
+  const handleHomeClick = () => {
+    appIconsContainer.classList.remove('hide');
+    setSelectedApp(null);
+  };
+
+  const handleAppClick = (appName: application) => {
+    console.log('test');
+
+    appIconsContainer.classList.add('hide');
+    setSelectedApp(appName);
+  };
 
   useEffect(() => {
     const appIcons: HTMLCollectionOf<Element> = document.getElementsByClassName('appIconContainer');
@@ -67,36 +81,36 @@ function Homepage() {
       id="HomePage"
     >
       <header>
-        <img src="/images/accountIcon.svg"/>
+        <img src="/images/accountIcon.svg" />
         {selectedApp !== null &&
           <img
             src="/public/images/homeIcon.svg"
-            onClick={() => setSelectedApp(null)}
+            onClick={() => handleHomeClick()}
           />
         }
       </header>
       <main>
+        <Container
+          id="appsMainContainer"
+          direction="row"
+        >
+          {apps.map((app) => (
+            <Container
+              key={app.name}
+              className="appIconContainer"
+              dataName={app.name}
+              direction="row"
+              onClick={() => handleAppClick(app.name)}
+            >
+              <img
+                src={app.image}
+                id={app.name === "calendar" ? "CalendarIcon" : undefined}
+              />
+            </Container>
+          ))}
+        </Container>
         {selectedApp === null && (
           <>
-            <Container
-              id="appMainContainer"
-              direction="row"
-            >
-              {apps.map((app) => (
-                <Container
-                  key={app.name}
-                  className="appIconContainer"
-                  dataName={app.name}
-                  direction="row"
-                  onClick={() => setSelectedApp(app.name)}
-                >
-                  <img
-                    src={app.image}
-                    id={app.name === "calendar" ? "CalendarIcon" : undefined}
-                  />
-                </Container>
-              ))}
-            </Container>
             <Container
               direction="row"
               id="desktopSummaryContainer"

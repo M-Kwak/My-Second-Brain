@@ -22,7 +22,7 @@
         margin: auto;
     }
 
-    #appMainContainer {
+    #appsMainContainer {
         flex-flow: wrap-reverse !important;
         width: 100%;
     }
@@ -33,6 +33,10 @@
     }
 
     #desktopSummaryContainer {
+        display: none;
+    }
+
+    .hide {
         display: none;
     }
 
@@ -52,7 +56,7 @@
 
 @media screen and (min-width: 768px) {
     #HomePage {
-        #appMainContainer {
+        #appsMainContainer {
             max-width: 500px;
         }
 
@@ -89,8 +93,8 @@
 
     #HomePage {
         justify-content: flex-start;
-        
-        #appMainContainer {
+
+        #appsMainContainer {
             max-width: 100%;
             padding-bottom: 50px;
         }
@@ -103,10 +107,10 @@
             height: 79.5vh;
             z-index: 2;
 
-            & > :first-child {
-                width: 38%;
+            &> :first-child {
+                width: 43%;
 
-                & > * {
+                &>* {
                     width: 100%;
                     height: $summaryHeight;
                     margin: $summaryMargin 0;
@@ -114,8 +118,8 @@
                 }
             }
 
-            & > :nth-child(2) {
-                width: 60%;
+            &> :nth-child(2) {
+                width: 57%;
             }
         }
 
@@ -129,11 +133,27 @@
             min-height: #{($summaryHeight + $summaryMargin ) * 3 + $summaryMargin};
         }
 
+        .hide {
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 20px;
+            left: 0;
+            margin: 0 auto;
+            z-index: 0;
+            padding: 0;
+
+        }
+
         .appIconContainer {
             width: 75px;
             height: 75px;
             margin: 0px 26px;
             cursor: pointer;
+        }
+
+        .appIconContainer:hover {
+            background-color: #24233b;
         }
 
         main {
@@ -152,7 +172,7 @@
             width: 98.5%;
             padding-top: 12px;
             margin-bottom: 20px;
-            z-index: 1;
+            z-index: 3;
 
             img {
                 width: 42px;
