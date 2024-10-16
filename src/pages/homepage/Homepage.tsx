@@ -34,7 +34,7 @@ function Homepage() {
   ]
   const [selectedApp, setSelectedApp] = useState<application>(null);
   const [appHovered, setAppHovered] = useState<application>(null);
-  
+
   const appIconsContainer: HTMLDivElement = document.getElementById('appsMainContainer') as HTMLDivElement;
 
   const handleHomeClick = () => {
@@ -43,8 +43,6 @@ function Homepage() {
   };
 
   const handleAppClick = (appName: application) => {
-    console.log('test');
-
     appIconsContainer.classList.add('hide');
     setSelectedApp(appName);
   };
