@@ -32,21 +32,22 @@ function Homepage() {
       image: '/images/barbellIcon.svg'
     },
   ]
+
+  const appIconsContainer: HTMLDivElement = document.getElementById('navbar') as HTMLDivElement;
+  const appIcons: HTMLCollectionOf<Element> = document.getElementsByClassName('navbarIconContainer');
+
   const [selectedApp, setSelectedApp] = useState<application>(null);
   const [appHovered, setAppHovered] = useState<application>(null);
-
-  const appIconsContainer: HTMLDivElement = document.getElementById('appsMainContainer') as HTMLDivElement;
-  const appIcons: HTMLCollectionOf<Element> = document.getElementsByClassName('appIconContainer');
 
   const swapNavbarStyle: (action: 'enlarge' | 'reduce') => void = (action: 'enlarge' | 'reduce') => {
     if (action === 'enlarge') {
       appIconsContainer.classList.remove('reducedNavbar');
       appIconsContainer.classList.remove('hide');
-  
+
       Array.from(appIcons).forEach(icon => {
         const innerImage: HTMLImageElement = icon.firstChild as HTMLImageElement;
-        icon.classList.remove('reducedNavbarAppContainer')
-        innerImage.classList.remove('reducedNavbarAppSVG');
+        icon.classList.remove('reducedNavbarIconsContainer')
+        innerImage.classList.remove('reducedNavbarIcons');
       });
     }
     else {
@@ -55,8 +56,8 @@ function Homepage() {
 
       Array.from(appIcons).forEach(icon => {
         const innerImage: HTMLImageElement = icon.firstChild as HTMLImageElement;
-        icon.classList.add('reducedNavbarAppContainer')
-        innerImage.classList.add('reducedNavbarAppSVG');
+        icon.classList.add('reducedNavbarIconsContainer')
+        innerImage.classList.add('reducedNavbarIcons');
       });
     }
   };
@@ -66,7 +67,7 @@ function Homepage() {
     swapNavbarStyle('enlarge');
     setSelectedApp(null);
   };
-  
+
   const handleAppClick = (appName: application) => {
     swapNavbarStyle('reduce');
     setSelectedApp(appName);
@@ -113,13 +114,13 @@ function Homepage() {
       </header>
       <main>
         <Container
-          id="appsMainContainer"
+          id="navbar"
           direction="row"
         >
           {apps.map((app) => (
             <Container
               key={app.name}
-              className="appIconContainer"
+              className="navbarIconContainer"
               dataName={app.name}
               direction="row"
               onClick={() => handleAppClick(app.name)}
