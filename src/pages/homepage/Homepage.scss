@@ -182,6 +182,12 @@
             height: 45px;
         }
 
+        // this exist because calendar icon is a pain in the ***
+        .reducedCalendarIcon {
+            width: 35px !important;
+            height: 35px !important;
+        }
+
         .hide {
             display: flex;
             justify-content: center;
