@@ -43,10 +43,12 @@ function Homepage() {
     if (action === 'enlarge') {
       appIconsContainer.classList.remove('reducedNavbar');
       appIconsContainer.classList.remove('hide');
-
+      
+      // reduce every apps container size and their inner icon size (calendar need special attention)
       Array.from(appIcons).forEach(icon => {
         const innerImage: HTMLImageElement = icon.firstChild as HTMLImageElement;
         icon.classList.remove('reducedNavbarIconsContainer')
+        if (innerImage.id === 'CalendarIcon') innerImage.classList.remove('reducedCalendarIcon');
         innerImage.classList.remove('reducedNavbarIcons');
       });
     }
@@ -54,9 +56,11 @@ function Homepage() {
       appIconsContainer.classList.add('reducedNavbar');
       appIconsContainer.classList.add('hide');
 
+      // reduce every apps container size and their inner icon size (calendar need special attention)
       Array.from(appIcons).forEach(icon => {
         const innerImage: HTMLImageElement = icon.firstChild as HTMLImageElement;
-        icon.classList.add('reducedNavbarIconsContainer')
+        icon.classList.add('reducedNavbarIconsContainer');
+        if (innerImage.id === 'CalendarIcon') innerImage.classList.add('reducedCalendarIcon');
         innerImage.classList.add('reducedNavbarIcons');
       });
     }
