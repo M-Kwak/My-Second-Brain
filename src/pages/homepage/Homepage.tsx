@@ -36,19 +36,43 @@ function Homepage() {
   const [appHovered, setAppHovered] = useState<application>(null);
 
   const appIconsContainer: HTMLDivElement = document.getElementById('appsMainContainer') as HTMLDivElement;
+  const appIcons: HTMLCollectionOf<Element> = document.getElementsByClassName('appIconContainer');
+
+  const swapNavbarStyle: (action: 'enlarge' | 'reduce') => void = (action: 'enlarge' | 'reduce') => {
+    if (action === 'enlarge') {
+      appIconsContainer.classList.remove('reducedNavbar');
+      appIconsContainer.classList.remove('hide');
+  
+      Array.from(appIcons).forEach(icon => {
+        const innerImage: HTMLImageElement = icon.firstChild as HTMLImageElement;
+        icon.classList.remove('reducedNavbarAppContainer')
+        innerImage.classList.remove('reducedNavbarAppSVG');
+      });
+    }
+    else {
+      appIconsContainer.classList.add('reducedNavbar');
+      appIconsContainer.classList.add('hide');
+
+      Array.from(appIcons).forEach(icon => {
+        const innerImage: HTMLImageElement = icon.firstChild as HTMLImageElement;
+        icon.classList.add('reducedNavbarAppContainer')
+        innerImage.classList.add('reducedNavbarAppSVG');
+      });
+    }
+  };
 
   const handleHomeClick = () => {
     appIconsContainer.classList.remove('hide');
+    swapNavbarStyle('enlarge');
     setSelectedApp(null);
   };
-
+  
   const handleAppClick = (appName: application) => {
-    appIconsContainer.classList.add('hide');
+    swapNavbarStyle('reduce');
     setSelectedApp(appName);
   };
 
   useEffect(() => {
-    const appIcons: HTMLCollectionOf<Element> = document.getElementsByClassName('appIconContainer');
 
     const handleMouseOver: (event: Event) => void = (event: Event) => {
       const target: HTMLElement = (event.currentTarget as HTMLElement);
@@ -71,7 +95,7 @@ function Homepage() {
         icon.removeEventListener('mouseout', handleMouseOut);
       });
     };
-  }, []);
+  }, [appIcons]);
 
   return (
     <Container
@@ -138,6 +162,11 @@ function Homepage() {
               </Container>
             </Container>
             <CurvedLine />
+          </>
+        )}
+        {selectedApp !== null && (
+          <>
+            <h1>{selectedApp}</h1>
           </>
         )}
       </main>
