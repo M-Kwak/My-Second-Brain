@@ -90,12 +90,14 @@
 @media screen and (min-width: 1025px) {
     $summaryHeight: 220px;
     $summaryMargin: 20px;
+    $navbarAnimationDuration: 0.8s;
 
     @keyframes reducingNavbar {
         from {
             width: 635px;
             top: 90px;
         }
+
         to {
             top: 15px;
             z-index: 4 !important;
@@ -108,6 +110,7 @@
             width: 75px;
             height: 75px;
         }
+
         to {
             width: 55px;
             height: 55px;
@@ -119,6 +122,7 @@
             width: 70px;
             height: 70px;
         }
+
         to {
             width: 50px;
             height: 50px;
@@ -130,6 +134,7 @@
             width: 55px;
             height: 55px;
         }
+
         to {
             width: 40px;
             height: 40px;
@@ -212,31 +217,24 @@
             min-height: #{($summaryHeight + $summaryMargin ) * 3 + $summaryMargin};
         }
 
-        .reducedNavbar {
-            animation: reducingNavbar 0.6s ease forwards;
+        .navbarResizeAnimation {
+            animation: reducingNavbar $navbarAnimationDuration ease forwards;
         }
-        
-        .reducedNavbarIconsContainer {
-            animation: reducingNavbarIconsContainer 0.6s ease forwards;
+
+        .navbarIconsContainerResizeAnimation {
+            animation: reducingNavbarIconsContainer $navbarAnimationDuration ease forwards;
         }
-        
-        .reducedNavbarIcons {
-            animation: reducingNavbarIcons 0.6s ease forwards;
+
+        .navbarIconsResizeAnimation {
+            animation: reducingNavbarIcons $navbarAnimationDuration ease forwards;
         }
-        
-        .reducedCalendarIcon {
-            animation: reducingCalendarIcon 0.6s ease forwards;
+
+        .calendarIconResizeAnimation {
+            animation: reducingCalendarIcon $navbarAnimationDuration ease forwards;
         }
 
         .hide {
             display: flex;
-            justify-content: center;
-            position: fixed;
-            top: 85px;
-            left: 0;
-            margin: 0 auto;
-            z-index: 0;
-            padding: 0;
         }
 
         .navbarIconContainer {

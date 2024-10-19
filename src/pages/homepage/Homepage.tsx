@@ -33,49 +33,99 @@ function Homepage() {
     },
   ]
 
-  const appIconsContainer: HTMLDivElement = document.getElementById('navbar') as HTMLDivElement;
-  const appIcons: HTMLCollectionOf<Element> = document.getElementsByClassName('navbarIconContainer');
+  const navbar: HTMLDivElement = document.getElementById('navbar') as HTMLDivElement;
+  const navbarAppIconsContainers: HTMLCollectionOf<Element> = document.getElementsByClassName('navbarIconContainer');
 
   const [selectedApp, setSelectedApp] = useState<application>(null);
   const [appHovered, setAppHovered] = useState<application>(null);
 
-  const swapNavbarStyle: (action: 'enlarge' | 'reduce') => void = (action: 'enlarge' | 'reduce') => {
-    if (action === 'enlarge') {
-      appIconsContainer.classList.remove('reducedNavbar');
-      appIconsContainer.classList.remove('hide');
-      
-      // reduce every apps container size and their inner icon size (calendar need special attention)
-      Array.from(appIcons).forEach(icon => {
-        const innerImage: HTMLImageElement = icon.firstChild as HTMLImageElement;
-        icon.classList.remove('reducedNavbarIconsContainer')
-        if (innerImage.id === 'CalendarIcon') innerImage.classList.remove('reducedCalendarIcon');
-        innerImage.classList.remove('reducedNavbarIcons');
-      });
-    }
-    else {
-      appIconsContainer.classList.add('reducedNavbar');
-      appIconsContainer.classList.add('hide');
+  const setNavbarAnimationDirection: (action: 'expand' | 'reduce') => void = (action) => {
+    const animationDirection: string = action === 'expand' ? 'reverse' : 'normal';
+    const allNavbarChildren: NodeListOf<Element> = navbar.querySelectorAll('*');
 
-      // reduce every apps container size and their inner icon size (calendar need special attention)
-      Array.from(appIcons).forEach(icon => {
-        const innerImage: HTMLImageElement = icon.firstChild as HTMLImageElement;
-        icon.classList.add('reducedNavbarIconsContainer');
-        if (innerImage.id === 'CalendarIcon') innerImage.classList.add('reducedCalendarIcon');
-        innerImage.classList.add('reducedNavbarIcons');
-      });
-    }
+    navbar.style.animationDirection = animationDirection;
+    allNavbarChildren.forEach((child) => {
+      if (child instanceof HTMLElement) child.style.animationDirection = animationDirection;
+    });
+  };
+
+  const addNavbarAnimationClass: () => void = () => {
+    navbar.classList.add('navbarResizeAnimation');
+    Array.from(navbarAppIconsContainers).forEach(appIconContainer => {
+      const appIcon: HTMLImageElement = appIconContainer.firstChild as HTMLImageElement;
+      appIconContainer.classList.add('navbarIconsContainerResizeAnimation')
+      if (appIcon.id === 'CalendarIcon') appIcon.classList.add('calendarIconResizeAnimation');
+      appIcon.classList.add('navbarIconsResizeAnimation');
+    });
+  }
+
+  // navbar and children can't keep props from css class after animation because we
+  // use 'reverse' in setNavbarAnimationDirection... wich lead to this mess
+  const keepPropsPostAnimation: (action: 'expand' | 'reduce') => void = (action) => {
+    navbar.addEventListener('animationend', () => {
+      if (action === 'reduce') {
+        navbar.style.top = '15px';
+        navbar.style.width = '550px';
+        Array.from(navbarAppIconsContainers).forEach(appIconContainer => {
+          if (appIconContainer instanceof HTMLElement) {
+            appIconContainer.style.width = '55px';
+            appIconContainer.style.height = '55px';
+          }
+          const appIcon = appIconContainer.firstChild as HTMLImageElement;
+          appIcon.id === 'CalendarIcon' ? appIcon.style.width = '40px' : appIcon.style.width = '50px';
+          appIcon.id === 'CalendarIcon' ? appIcon.style.height = '40px' : appIcon.style.height = '50px';
+        });
+      } else if (action === 'expand') {
+        navbar.style.top = '90px';
+        navbar.style.width = '635px';
+        Array.from(navbarAppIconsContainers).forEach(appIconContainer => {
+          if (appIconContainer instanceof HTMLElement) {
+            appIconContainer.style.width = '75px';
+            appIconContainer.style.height = '75px';
+          }
+          const appIcon = appIconContainer.firstChild as HTMLImageElement;
+          appIcon.id === 'CalendarIcon' ? appIcon.style.width = '55px' : appIcon.style.width = '70px';
+          appIcon.id === 'CalendarIcon' ? appIcon.style.height = '55px' : appIcon.style.height = '70px';
+        });
+      }
+    }, { once: true });
+  }
+
+  const animateNavbar: (action: 'expand' | 'reduce') => void = (action) => {
+    setNavbarAnimationDirection(action);
+    addNavbarAnimationClass();
+    keepPropsPostAnimation(action);
   };
 
   const handleHomeClick = () => {
-    appIconsContainer.classList.remove('hide');
-    swapNavbarStyle('enlarge');
+    navbar.classList.remove('hide');
+    animateNavbar('expand');
     setSelectedApp(null);
   };
 
   const handleAppClick = (appName: application) => {
-    swapNavbarStyle('reduce');
+    if (!selectedApp) animateNavbar('reduce');
     setSelectedApp(appName);
   };
+
+  useEffect(() => {
+    const navbar: HTMLDivElement = document.getElementById('navbar') as HTMLDivElement;
+
+    const removeAnimationClasses = () => {
+      navbar.classList.remove('navbarResizeAnimation');
+      Array.from(navbarAppIconsContainers).forEach(appIconContainer => {
+        const appIcon = appIconContainer.firstChild as HTMLImageElement;
+        appIconContainer.classList.remove('navbarIconsContainerResizeAnimation');
+        appIcon.classList.remove('navbarIconsResizeAnimation', 'calendarIconResizeAnimation');
+      });
+    };
+
+    navbar.addEventListener('animationend', removeAnimationClasses);
+
+    return () => {
+      navbar.removeEventListener('animationend', removeAnimationClasses);
+    };
+  }, [navbar, navbarAppIconsContainers]);
 
   useEffect(() => {
 
@@ -89,18 +139,18 @@ function Homepage() {
       setAppHovered(null);
     };
 
-    Array.from(appIcons).forEach(icon => {
+    Array.from(navbarAppIconsContainers).forEach(icon => {
       icon.addEventListener('mouseover', handleMouseOver);
       icon.addEventListener('mouseout', handleMouseOut);
     });
 
     return () => {
-      Array.from(appIcons).forEach(icon => {
+      Array.from(navbarAppIconsContainers).forEach(icon => {
         icon.removeEventListener('mouseover', handleMouseOver);
         icon.removeEventListener('mouseout', handleMouseOut);
       });
     };
-  }, [appIcons]);
+  }, [navbarAppIconsContainers]);
 
   return (
     <Container
@@ -132,6 +182,7 @@ function Homepage() {
               <img
                 src={app.image}
                 id={app.name === "calendar" ? "CalendarIcon" : undefined}
+                className="navbarIcon"
               />
             </Container>
           ))}
