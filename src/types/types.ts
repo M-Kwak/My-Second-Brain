@@ -13,3 +13,8 @@ export type direction = 'row' | 'column';
 export type application = 'archive' | 'vault' | 'calendar' | 'to-do' | 'progress' | null
 
 export type carousselDirection = 'backward' | 'forward'
+
+export type iconType = {
+    name: application,
+    image: string,
+  };
