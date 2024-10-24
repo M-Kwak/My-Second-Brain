@@ -40,6 +40,7 @@ function Homepage() {
   const [appHovered, setAppHovered] = useState<application>(null);
 
   const setNavbarAnimationDirection: (action: 'expand' | 'reduce') => void = (action) => {
+    const navbar: HTMLDivElement = document.getElementById('navbar') as HTMLDivElement;
     const animationDirection: string = action === 'expand' ? 'reverse' : 'normal';
     const allNavbarChildren: NodeListOf<Element> = navbar.querySelectorAll('*');
 
@@ -50,7 +51,9 @@ function Homepage() {
   };
 
   const addNavbarAnimationClass: () => void = () => {
-    navbar.classList.add('navbarResizeAnimation');
+    const navbar: HTMLDivElement = document.getElementById('navbar') as HTMLDivElement;
+    // hide class only esxist for mobile/tab screen and does not affect deskt
+    navbar.classList.add('hide', 'navbarResizeAnimation');
     Array.from(navbarAppIconsContainers).forEach(appIconContainer => {
       const appIcon: HTMLImageElement = appIconContainer.firstChild as HTMLImageElement;
       appIconContainer.classList.add('navbarIconsContainerResizeAnimation')
@@ -62,6 +65,7 @@ function Homepage() {
   // navbar and children can't keep props from css class after animation because we
   // use 'reverse' in setNavbarAnimationDirection... wich lead to this mess
   const keepPropsPostAnimation: (action: 'expand' | 'reduce') => void = (action) => {
+    const navbar: HTMLDivElement = document.getElementById('navbar') as HTMLDivElement;
     navbar.addEventListener('animationend', () => {
       if (action === 'reduce') {
         navbar.style.top = '15px';
@@ -98,8 +102,8 @@ function Homepage() {
   };
 
   const handleHomeClick = () => {
-    navbar.classList.remove('hide');
-    animateNavbar('expand');
+    if (window.innerWidth <= 1025) navbar.classList.remove('hide');
+    else animateNavbar('expand');
     setSelectedApp(null);
   };
 

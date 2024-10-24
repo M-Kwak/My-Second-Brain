@@ -28,6 +28,7 @@
     }
 
     #navbar {
+        display: flex;
         flex-flow: wrap-reverse !important;
         width: 100%;
     }
@@ -42,7 +43,7 @@
     }
 
     .hide {
-        display: none;
+        display: none !important;
     }
 
     .navbarIconContainer {
@@ -234,7 +235,7 @@
         }
 
         .hide {
-            display: flex;
+            display: flex !important;
         }
 
         .navbarIconContainer {
