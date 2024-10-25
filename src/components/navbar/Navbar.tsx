@@ -1,5 +1,6 @@
 import { Dispatch, forwardRef, SetStateAction, useEffect, useImperativeHandle } from "react";
-import { application, iconType } from "../../types/types";
+import { app, application } from "../../types/types";
+import { applications } from "../../utils/genericDatas";
 import Container from "../container/Container";
 import "./Navbar.scss";
 
@@ -20,29 +21,7 @@ const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) =
     setAppHovered,
   } = props;
 
-  const apps: iconType[] = [
-    {
-      name: 'archive',
-      image: '/images/brainIcon.svg'
-    },
-    {
-      name: 'calendar',
-      image: '/images/calendarIcon.svg'
-    },
-    {
-      name: 'to-do',
-      image: '/images/todolistIcon.svg'
-    },
-    {
-      name: 'vault',
-      image: '/images/vaultIcon.svg'
-    },
-    {
-      name: 'progress',
-      image: '/images/barbellIcon.svg'
-    },
-  ]
-
+  const apps: app[] = applications;
   const navbar: HTMLDivElement = document.getElementById('navbar') as HTMLDivElement;
   const navbarAppIconsContainers: HTMLCollectionOf<Element> = document.getElementsByClassName('navbarIconContainer');
 
@@ -178,7 +157,7 @@ const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) =
             onClick={() => handleAppClick(appContainer.name)}
           >
             <img
-              src={appContainer.image}
+              src={appContainer.icon}
               id={appContainer.name === "calendar" ? "CalendarIcon" : undefined}
               className="navbarIcon"
             />

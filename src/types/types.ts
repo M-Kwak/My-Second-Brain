@@ -17,4 +17,10 @@ export type carousselDirection = 'backward' | 'forward'
 export type iconType = {
     name: application,
     image: string,
-  };
+};
+
+export type app = {
+    name: application,
+    icon: string,
+    preview: string,
+}
