@@ -1,6 +1,7 @@
 import { Dispatch, forwardRef, SetStateAction, useEffect, useImperativeHandle } from "react";
 import { application, iconType } from "../../types/types";
 import Container from "../container/Container";
+import "./Navbar.scss";
 
 interface NavbarHandle {
   handleHomeClick: () => void;
