@@ -27,31 +27,12 @@
         height: 60px;
     }
 
-    #navbar {
-        display: flex;
-        flex-flow: wrap-reverse !important;
-        width: 100%;
-    }
-
-    #CalendarIcon {
-        width: 50px;
-        height: 50px;
-    }
-
     #desktopSummaryContainer {
         display: none;
     }
 
     .hide {
         display: none !important;
-    }
-
-    .navbarIconContainer {
-        background-color: #1b1a2f;
-        border-radius: 18px;
-        width: 70px;
-        height: 70px;
-        margin: 25px 20px;
     }
 }
 
@@ -70,77 +51,12 @@
             width: 80px;
             height: 80px;
         }
-
-        #navbar {
-            width: 500px;
-        }
-
-        #CalendarIcon {
-            width: 60px;
-            height: 60px;
-        }
-
-        .navbarIconContainer {
-            width: 90px;
-            height: 90px;
-            margin: 30px 30px;
-        }
     }
 }
 
 @media screen and (min-width: 1025px) {
     $summaryHeight: 220px;
     $summaryMargin: 20px;
-    $navbarAnimationDuration: 0.8s;
-
-    @keyframes reducingNavbar {
-        from {
-            width: 635px;
-            top: 90px;
-        }
-
-        to {
-            top: 15px;
-            z-index: 4 !important;
-            width: 550px !important;
-        }
-    }
-
-    @keyframes reducingNavbarIconsContainer {
-        from {
-            width: 75px;
-            height: 75px;
-        }
-
-        to {
-            width: 55px;
-            height: 55px;
-        }
-    }
-
-    @keyframes reducingNavbarIcons {
-        from {
-            width: 70px;
-            height: 70px;
-        }
-
-        to {
-            width: 50px;
-            height: 50px;
-        }
-    }
-
-    @keyframes reducingCalendarIcon {
-        from {
-            width: 55px;
-            height: 55px;
-        }
-
-        to {
-            width: 40px;
-            height: 40px;
-        }
-    }
 
     #HomePage {
         justify-content: flex-start;
@@ -174,15 +90,6 @@
             cursor: pointer;
         }
 
-        #navbar {
-            position: absolute;
-            top: 90px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 635px;
-            z-index: 4;
-        }
-
         #desktopSummaryContainer {
             display: flex;
             flex-direction: row;
@@ -208,45 +115,13 @@
             }
         }
 
-        #CalendarIcon {
-            width: 55px;
-            height: 55px;
-        }
-
         #appPreviewContainer {
             justify-content: flex-start;
             min-height: #{($summaryHeight + $summaryMargin ) * 3 + $summaryMargin};
         }
 
-        .navbarResizeAnimation {
-            animation: reducingNavbar $navbarAnimationDuration ease forwards;
-        }
-
-        .navbarIconsContainerResizeAnimation {
-            animation: reducingNavbarIconsContainer $navbarAnimationDuration ease forwards;
-        }
-
-        .navbarIconsResizeAnimation {
-            animation: reducingNavbarIcons $navbarAnimationDuration ease forwards;
-        }
-
-        .calendarIconResizeAnimation {
-            animation: reducingCalendarIcon $navbarAnimationDuration ease forwards;
-        }
-
         .hide {
             display: flex !important;
-        }
-
-        .navbarIconContainer {
-            width: 75px;
-            height: 75px;
-            margin: 0px 26px;
-            cursor: pointer;
-        }
-
-        .navbarIconContainer:hover {
-            background-color: #24233b;
         }
     }
 }
