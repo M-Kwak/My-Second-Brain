@@ -23,4 +23,5 @@ export type app = {
     name: application,
     icon: string,
     preview: string,
+    description: string,
 }

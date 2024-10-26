@@ -118,6 +118,15 @@
         #appPreviewContainer {
             justify-content: flex-start;
             min-height: #{($summaryHeight + $summaryMargin ) * 3 + $summaryMargin};
+            h2 {
+                margin-bottom: 25px;
+            }
+        }
+
+        .appPreview {
+            width: 864px;
+            height: 455px;
+            margin-top: 60px;
         }
 
         .hide {

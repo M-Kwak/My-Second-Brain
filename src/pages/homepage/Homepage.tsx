@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { application } from "../../types/types";
+import { app } from "../../types/types";
 import Container from "../../components/container/Container";
 import CurvedLine from "../../components/curvedLine/CurvedLine";
 import Navbar from "../../components/navbar/Navbar";
@@ -12,8 +12,8 @@ interface NavbarHandle {
 function Homepage() {
   const navbarRef = useRef<NavbarHandle>(null);
 
-  const [selectedApp, setSelectedApp] = useState<application>(null);
-  const [appHovered, setAppHovered] = useState<application>(null);
+  const [selectedApp, setSelectedApp] = useState<app | null>(null);
+  const [appHovered, setAppHovered] = useState<app | null>(null);
 
   const handleHomeClick = () => {
     if (!navbarRef.current) return;
@@ -67,7 +67,13 @@ function Homepage() {
                     id="appPreviewContainer"
                     direction="column"
                   >
-                    <h2>{appHovered.toUpperCase()}</h2>
+                    <h2>{appHovered?.name?.toUpperCase()}</h2>
+                    <p>{appHovered.description}</p>
+                    <img
+                      className="appPreview"
+                      src={appHovered.preview}
+                    >
+                    </img>
                   </Container>
                 )}
               </Container>
@@ -77,7 +83,7 @@ function Homepage() {
         )}
         {selectedApp !== null && (
           <>
-            <h1>{selectedApp}</h1>
+            <h1>{selectedApp.name}</h1>
           </>
         )}
       </main>
