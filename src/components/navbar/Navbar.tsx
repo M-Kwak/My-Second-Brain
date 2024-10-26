@@ -9,9 +9,9 @@ interface NavbarHandle {
 }
 
 interface NavbarSpecs {
-  selectedApp: application,
-  setSelectedApp: Dispatch<SetStateAction<application>>
-  setAppHovered: Dispatch<SetStateAction<application>>,
+  selectedApp: app | null,
+  setSelectedApp: Dispatch<SetStateAction<app | null>>
+  setAppHovered: Dispatch<SetStateAction<app | null>>,
 }
 
 const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) => {
@@ -89,7 +89,8 @@ const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) =
 
   const handleAppClick = (appName: application) => {
     if (!selectedApp) animateNavbar('reduce');
-    setSelectedApp(appName);
+    const app: app | undefined = apps.find((app) => app.name === appName);
+    setSelectedApp(app ?? null);
   };
 
   useImperativeHandle(ref, () => ({
@@ -122,7 +123,8 @@ const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) =
     const handleMouseOver: (event: Event) => void = (event: Event) => {
       const target: HTMLElement = (event.currentTarget as HTMLElement);
       const appName: string | application = target.getAttribute('data-name');
-      setAppHovered(appName as application);
+      const app: app | undefined = apps.find((app) => app.name === appName);
+      setAppHovered(app ?? null);
     };
 
     const handleMouseOut: () => void = () => {
@@ -140,7 +142,7 @@ const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) =
         appContainer.removeEventListener('mouseout', handleMouseOut);
       });
     };
-  }, [navbarAppIconsContainers, setAppHovered]);
+  }, [navbarAppIconsContainers, setAppHovered, apps]);
 
   return (
     <>
