@@ -69,6 +69,24 @@
             h1 {
                 font-size: 24px;
                 margin-bottom: 265px;
+                transition: opacity 1s ease 0.4s;
+                z-index: 0;
+            }
+
+            .fadeIn {
+                opacity: 1;
+            }
+
+            .fadeOut {
+                opacity: 0;
+            }
+
+            .slideIn {
+                right: -30% !important
+            }
+            
+            .slideOut {
+                right: -22% !important
             }
         }
 
@@ -111,13 +129,18 @@
             }
 
             &> :nth-child(2) {
-                width: 57%;
+                width: 55%;
             }
         }
 
         #appPreviewContainer {
+            position: absolute;
+            right: -30%;
+            top: 23%;
             justify-content: flex-start;
             min-height: #{($summaryHeight + $summaryMargin ) * 3 + $summaryMargin};
+            transition: opacity 0.8s ease, right 0.8s ease;
+
             h2 {
                 margin-bottom: 25px;
             }
