@@ -10,8 +10,10 @@ interface NavbarHandle {
 
 interface NavbarSpecs {
   selectedApp: app | null,
-  setSelectedApp: Dispatch<SetStateAction<app | null>>
+  setSelectedApp: Dispatch<SetStateAction<app | null>>,
   setAppHovered: Dispatch<SetStateAction<app | null>>,
+  appHovered: app | null,
+  setPreviewAnimationSaveState: Dispatch<SetStateAction<app | null>>,
 }
 
 const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) => {
@@ -19,6 +21,8 @@ const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) =
     selectedApp,
     setSelectedApp,
     setAppHovered,
+    appHovered,
+    setPreviewAnimationSaveState,
   } = props;
 
   const apps: app[] = applications;
@@ -125,10 +129,14 @@ const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) =
       const appName: string | application = target.getAttribute('data-name');
       const app: app | undefined = apps.find((app) => app.name === appName);
       setAppHovered(app ?? null);
+      setPreviewAnimationSaveState(app ?? null);
     };
 
     const handleMouseOut: () => void = () => {
       setAppHovered(null);
+      setTimeout(() => {
+        if (!appHovered) setPreviewAnimationSaveState(null);
+      }, 800);
     };
 
     Array.from(navbarAppIconsContainers).forEach(appContainer => {
@@ -142,7 +150,13 @@ const Navbar = forwardRef<NavbarHandle, NavbarSpecs>((props: NavbarSpecs, ref) =
         appContainer.removeEventListener('mouseout', handleMouseOut);
       });
     };
-  }, [navbarAppIconsContainers, setAppHovered, apps]);
+  }, [
+    navbarAppIconsContainers,
+    setAppHovered,
+    setPreviewAnimationSaveState,
+    appHovered,
+    apps
+  ]);
 
   return (
     <>

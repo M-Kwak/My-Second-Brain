@@ -14,6 +14,7 @@ function Homepage() {
 
   const [selectedApp, setSelectedApp] = useState<app | null>(null);
   const [appHovered, setAppHovered] = useState<app | null>(null);
+  const [previewAnimationSaveState, setPreviewAnimationSaveState] = useState<app | null>(null);
 
   const handleHomeClick = () => {
     if (!navbarRef.current) return;
@@ -40,7 +41,9 @@ function Homepage() {
           ref={navbarRef}
           selectedApp={selectedApp}
           setSelectedApp={setSelectedApp}
+          appHovered={appHovered}
           setAppHovered={setAppHovered}
+          setPreviewAnimationSaveState={setPreviewAnimationSaveState}
         />
         {selectedApp === null && (
           <>
@@ -59,23 +62,25 @@ function Homepage() {
                   <p>TODO - Progress</p>
                 </Container>
               </Container>
-              <Container direction="column">
-                {appHovered === null ? (
-                  <h1>Welcome back !<br />Hover an application to reveal a preview</h1>
-                ) : (
-                  <Container
-                    id="appPreviewContainer"
-                    direction="column"
-                  >
-                    <h2>{appHovered?.name?.toUpperCase()}</h2>
-                    <p>{appHovered.description}</p>
-                    <img
-                      className="appPreview"
-                      src={appHovered.preview}
-                    >
-                    </img>
-                  </Container>
-                )}
+              <h1 className={appHovered !== null ? `fadeOut` : `fadeIn`}>
+                Welcome back !
+                <br />
+                Hover an application to reveal a preview
+              </h1>
+              <Container
+                id="appPreviewContainer"
+                className={
+                  `${appHovered !== null ? `fadeIn` : `fadeOut`}
+                   ${appHovered !== null ? 'slideOut' : 'slideIn'}`}
+                direction="column"
+              >
+                <h2>{previewAnimationSaveState?.name?.toUpperCase()}</h2>
+                <p>{previewAnimationSaveState?.description}</p>
+                <img
+                  className="appPreview"
+                  src={previewAnimationSaveState?.preview}
+                >
+                </img>
               </Container>
             </Container>
             <CurvedLine />
