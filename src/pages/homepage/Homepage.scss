@@ -147,9 +147,11 @@
         }
 
         .appPreview {
-            width: 864px;
+            width: 805px;
             height: 455px;
             margin-top: 60px;
+            box-shadow: -3px 3px 10px black;
+            cursor: default;
         }
 
         .hide {

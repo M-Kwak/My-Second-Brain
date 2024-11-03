@@ -4,25 +4,25 @@ export const applications: app[] = [
   {
     name: 'archive',
     icon: '/images/brainIcon.svg',
-    preview: '/public/images/archivePreview.svg',
+    preview: '/images/archivePreview.svg',
     description: 'Archive your knowledge, create topics, fill it with chapters, texts, images and more !',
   },
   {
     name: 'calendar',
     icon: '/images/calendarIcon.svg',
-    preview: '/public/images/calendarPreview.svg',
+    preview: '/images/calendarPreview.svg',
     description: 'Schedule your time and keep track of upcoming events at a glance.',
   },
   {
     name: 'to-do',
     icon: '/images/todolistIcon.svg',
-    preview: '',
+    preview: '/images/todoPreview.svg',
     description: 'Manage your daily tasks by creating, updating, and checking off tasks as you complete them.',
   },
   {
     name: 'vault',
     icon: '/images/vaultIcon.svg',
-    preview: '/public/images/vaultPreview.svg',
+    preview: '/images/vaultPreview.svg',
     description: 'Store, access, and organize your files all in one secure place.',
   },
   {
