@@ -82,11 +82,11 @@
             }
 
             .slideIn {
-                right: -30% !important
+                right: -5% !important
             }
             
             .slideOut {
-                right: -22% !important
+                right: 0% !important
             }
         }
 
@@ -118,7 +118,7 @@
             padding-top: 100px;
 
             &> :first-child {
-                width: 43%;
+                width: 100%;
 
                 &>* {
                     width: 100%;
@@ -129,7 +129,7 @@
             }
 
             &> :nth-child(2) {
-                width: 55%;
+                width: 100%;
             }
         }
 

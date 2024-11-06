@@ -51,17 +51,6 @@ function Homepage() {
               direction="row"
               id="desktopSummaryContainer"
             >
-              <Container direction="column">
-                <Container direction="column">
-                  <p>TODO - Calendar</p>
-                </Container>
-                <Container direction="column">
-                  <p>TODO - Todolist</p>
-                </Container>
-                <Container direction="column">
-                  <p>TODO - Progress</p>
-                </Container>
-              </Container>
               <h1 className={appHovered !== null ? `fadeOut` : `fadeIn`}>
                 Welcome back !
                 <br />
