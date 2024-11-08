@@ -10,9 +10,9 @@ export type loginPageContent =
 
 export type direction = 'row' | 'column';
 
-export type application = 'archive' | 'vault' | 'calendar' | 'to-do' | 'progress' | null
+export type application = 'archive' | 'vault' | 'calendar' | 'to-do' | 'progress' | null;
 
-export type carousselDirection = 'backward' | 'forward'
+export type carousselDirection = 'backward' | 'forward';
 
 export type iconType = {
     name: application,
@@ -24,4 +24,4 @@ export type app = {
     icon: string,
     preview: string,
     description: string,
-}
+};
