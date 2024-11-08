@@ -4,6 +4,7 @@ import Container from "../../components/container/Container";
 import CurvedLine from "../../components/curvedLine/CurvedLine";
 import Navbar from "../../components/navbar/Navbar";
 import "./Homepage.scss";
+import Apps from "../../components/apps/Apps";
 
 interface NavbarHandle {
   handleHomeClick: () => void;
@@ -75,11 +76,7 @@ function Homepage() {
             <CurvedLine />
           </>
         )}
-        {selectedApp !== null && (
-          <>
-            <h1>{selectedApp.name}</h1>
-          </>
-        )}
+        {selectedApp !== null && (<Apps selectedApp={selectedApp} />)}
       </main>
     </Container >
   );
