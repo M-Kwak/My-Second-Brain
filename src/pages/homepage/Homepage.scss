@@ -82,11 +82,11 @@
             }
 
             .slideIn {
-                right: -5% !important
+                right: 15% !important
             }
             
             .slideOut {
-                right: 0% !important
+                right: 20% !important
             }
         }
 
@@ -129,7 +129,7 @@
             }
 
             &> :nth-child(2) {
-                width: 100%;
+                width: 60%;
             }
         }
 

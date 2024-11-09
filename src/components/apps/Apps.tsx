@@ -1,4 +1,3 @@
-import React from "react";
 import { app } from "../../types/types";
 import ArchiveApp from "../archiveApp/ArchiveApp";
 import CalendarApp from "../calendarApp/CalendarApp";
